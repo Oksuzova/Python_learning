@@ -1,9 +1,6 @@
 <h1 align="center"> 
 100 Days of Python
 </h1>
-<h5 align="center">
-Starting from : Feb 20, 2023
-</h5>
 
 
 <ul>
@@ -22,3 +19,6 @@ Starting from : Feb 20, 2023
 
 
 
+<h5 align="center">
+Starting from : Feb 20, 2023
+</h5>

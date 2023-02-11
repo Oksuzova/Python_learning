@@ -10,4 +10,4 @@ for i in student_scores:
     if score < i:
         score = i
 
-print("The highest score in the class is:", tmp)
+print("The highest score in the class is:", score)

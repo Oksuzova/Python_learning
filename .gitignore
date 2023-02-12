@@ -3,3 +3,5 @@ day005/5_average_height.py
 .idea/vcs.xml
 *.iml
 *.xml
+day007/__pycache__/hangman_arts.cpython-311.pyc
+*.pyc

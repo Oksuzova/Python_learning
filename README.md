@@ -15,6 +15,8 @@
 <li> <b>Day 5</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day005">Python Loops</a></li>
 
 <li> <b>Day 6</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day006">Getting Started with Python Functions</a></li>
+
+<li> <b>Day 7</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day007">Hangman game</a></li>
   
 
 </ul>

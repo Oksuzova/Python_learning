@@ -11,6 +11,8 @@
 <li> <b>Day 3</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day003">Control Flow and Logical Operators</a></li>
 
 <li> <b>Day 4</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day004">Randomisation and Python Lists</a></li>
+
+<li> <b>Day 5</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day005">Python Loops</a></li>
   
 
 </ul>

@@ -13,6 +13,8 @@
 <li> <b>Day 4</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day004">Randomisation and Python Lists</a></li>
 
 <li> <b>Day 5</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day005">Python Loops</a></li>
+
+<li> <b>Day 6</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day006">Getting Started with Python Functions</a></li>
   
 
 </ul>

@@ -29,7 +29,6 @@ while not choice:
     doc = open("text.txt")
     text = list()
     for line in doc:
-        line = line.rstrip()
         text.append(line)
     text = "".join(text)
     shift = int(input("Type the shift number:\n"))

@@ -19,6 +19,10 @@
 <li> <b>Day 7</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day007">Hangman game</a></li>
 
 <li> <b>Day 8</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day008">Function Parameters & Caesar Cipher</a></li>
+ 
+<li> <b>Day 9</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day009">Dictinaries, nesting and the secret auction</a></li>
+ 
+<li> <b>Day 10</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day010">Function with outputs</a></li>
   
 
 </ul>

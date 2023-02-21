@@ -29,8 +29,8 @@ print(f"You can drive at age {age}.")    #missed 4 blankes for indented block af
 pages = 0
 word_per_page = 0
 pages = int(input("Number of pages: "))
-word_per_page = int(input("Number of words per page: "))    
-total_words == pages * word_per_page                        #hould use assignment statement, not the comparison
+word_per_page = int(input("Number of words per page: "))
+total_words == pages * word_per_page                        #should use assignment statement, not the comparison
 print(total_words)
 
 # #Use a Debugger

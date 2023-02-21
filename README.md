@@ -25,6 +25,9 @@
 <li> <b>Day 10</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day010">Function with outputs</a></li>
 
 <li> <b>Day 11</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day011">The Blackjack Capstone project</a></li>
+
+<li> <b>Day 12</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day012">Scope and Number Guessing Game</a></li>
+  
   
 
 </ul>

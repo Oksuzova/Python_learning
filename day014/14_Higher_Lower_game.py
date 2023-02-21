@@ -20,6 +20,8 @@ def choice(a, b, user_choice):
 def game(score):
     a = random.choice(data)
     b = random.choice(data)
+    if a == b:
+        b = random.choice(data)
 
     print(f"Compare A. {a['name']}, {a['description']} from {a['country']}")
     print(vs)
@@ -27,14 +29,14 @@ def game(score):
 
     user_choice = (input("Who has more followers? Type 'A' or 'B': ")).lower()
 
-    while compare(a, b) == choice(a, b, user_choice):
+    if compare(a, b) == choice(a, b, user_choice):
         score += 1
         print("\n" * 50)
         print(logo)
         print(f"You`re right! Score is {score}")
         game(score)
 
-    if compare(a, b) != choice(a, b, user_choice):
+    else:
         print(f"You`re wrong... The final score is {score}")
         exit()
 

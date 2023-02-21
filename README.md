@@ -27,6 +27,8 @@
 <li> <b>Day 11</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day011">The Blackjack Capstone project</a></li>
 
 <li> <b>Day 12</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day012">Scope and Number Guessing Game</a></li>
+
+<li> <b>Day 13</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day013">Debugging and how to find and fix errors in your code</a></li>
   
   
 

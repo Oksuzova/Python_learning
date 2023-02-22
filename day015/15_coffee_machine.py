@@ -32,6 +32,7 @@ resources = {
 
 
 def check_resources(drink: dict):
+    """Check the resources and return False if it is not enough"""
     for k in drink:
         if drink.get(k) > resources.get(k):
             print(f"Sorry there is not enough {k}.")
@@ -41,6 +42,7 @@ def check_resources(drink: dict):
 
 
 def coins():
+    """Ask user how many coins he pay and returns the total calculated from coins inserted."""
     quarters = float(input("how many quarters(0.25$)?: "))
     dimes = float(input("how many dimes(0.10$)?: "))
     nickles = float(input("how many nickles(0.05$)?: "))
@@ -49,6 +51,7 @@ def coins():
 
 
 def deduct_resources(drink: dict):
+    """Deducted resources after makes drink"""
     for res in drink:
         resources[res] -= drink[res]
 

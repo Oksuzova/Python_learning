@@ -58,7 +58,7 @@ def deduct_resources(drink: dict):
         resources[res] -= drink[res]
 
 
-def make_coffee(drink, price):
+def make_coffee(drink: dict, price: float):
     if not check_resources(drink):
         return 0
     print("Please insert coins.")
@@ -89,7 +89,6 @@ while on:
         check = make_coffee(drink, price)
         if check != 0:
             money += price
-
 
 
 # TODO: 1. Create a main function that check users input and decides what to do next

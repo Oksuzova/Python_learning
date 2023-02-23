@@ -30,9 +30,11 @@ resources = {
     "coffee": 200,
 }
 
+money = 0
+
 
 def check_resources(drink: dict):
-    """Check the resources and return False if it is not enough"""
+    """Check the resources and return False if it is not enough."""
     for k in drink:
         if drink.get(k) > resources.get(k):
             print(f"Sorry there is not enough {k}.")
@@ -51,40 +53,43 @@ def coins():
 
 
 def deduct_resources(drink: dict):
-    """Deducted resources after makes drink"""
+    """Deducted resources after makes drink."""
     for res in drink:
         resources[res] -= drink[res]
 
 
-def make_coffee(money):
-    on = True
+def make_coffee(drink, price):
+    if not check_resources(drink):
+        return 0
+    print("Please insert coins.")
+    user_coins = coins()
+    if user_coins < price:
+        print("Sorry that's not enough money. Money refunded.")
+        return 0
+    else:
+        change = round(user_coins - price, 2)
+    print(f"Here is ${change} in change.")
+    print(f"Here is your {users_choice}. Enjoy!")
+    deduct_resources(drink)
 
-    while on:
-        users_choice = input("What would you like? (espresso/latte/cappuccino): ")
-        if users_choice == "off":
-            on = False
-            break
-        elif users_choice == "report":
-            print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: ${money}")
-        else:
-            drink = MENU[users_choice]["ingredients"]
-            price = MENU[users_choice]["cost"]
-            if not check_resources(drink):
-                continue
-            print("Please insert coins.")
-            user_coins = coins()
-            if user_coins < price:
-                print("Sorry that's not enough money. Money refunded.")
-                continue
-            else:
-                change = round(user_coins - price, 2)
-            print(f"Here is ${change} in change.")
-            print(f"Here is your {users_choice}. Enjoy!")
+
+on = True
+
+while on:
+    users_choice = input("What would you like? (espresso/latte/cappuccino): ")
+    if users_choice == "off":
+        on = False
+        break
+    elif users_choice == "report":
+        print(
+            f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: ${money}")
+    else:
+        drink = MENU[users_choice]["ingredients"]
+        price = MENU[users_choice]["cost"]
+        check = make_coffee(drink, price)
+        if check != 0:
             money += price
-            deduct_resources(drink)
 
-
-make_coffee(money=0)
 
 
 # TODO: 1. Create a main function that check users input and decides what to do next

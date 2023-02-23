@@ -32,7 +32,7 @@
  
 <li> <b>Day 14</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day014">Higher-Lower game project</a></li>
  
-
+<li> <b>Day 15</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day015">Coffee machine project</a></li>
   
 
 </ul>

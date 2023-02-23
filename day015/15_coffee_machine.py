@@ -35,6 +35,7 @@ money = 0
 
 def check_resources(drink: dict):
     """Check the resources and return False if it is not enough."""
+    drink = drink["ingredients"]
     for k in drink:
         if drink.get(k) > resources.get(k):
             print(f"Sorry there is not enough {k}.")
@@ -54,11 +55,13 @@ def coins():
 
 def deduct_resources(drink: dict):
     """Deducted resources after makes drink."""
+    drink = drink["ingredients"]
     for res in drink:
         resources[res] -= drink[res]
 
 
-def make_coffee(drink: dict, price: float):
+def make_coffee(drink: dict):
+    price = drink["cost"]
     if not check_resources(drink):
         return 0
     print("Please insert coins.")
@@ -84,11 +87,10 @@ while on:
         print(
             f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: ${money}")
     else:
-        drink = MENU[users_choice]["ingredients"]
-        price = MENU[users_choice]["cost"]
-        check = make_coffee(drink, price)
+        drink = MENU[users_choice]
+        check = make_coffee(drink)
         if check != 0:
-            money += price
+            money += drink["cost"]
 
 
 # TODO: 1. Create a main function that check users input and decides what to do next

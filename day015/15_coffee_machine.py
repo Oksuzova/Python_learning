@@ -46,11 +46,17 @@ def check_resources(drink: dict):
 
 def coins():
     """Ask user how many coins he pay and returns the total calculated from coins inserted."""
-    quarters = float(input("how many quarters(0.25$)?: "))
-    dimes = float(input("how many dimes(0.10$)?: "))
-    nickles = float(input("how many nickles(0.05$)?: "))
-    pennies = float(input("how many pennies(0.01$)?: "))
-    return round(quarters * 0.25 + dimes * 0.1 + nickles * 0.05 + pennies * 0.01, 2)
+    flag = True
+    while flag:
+        try:
+            quarters = int(input("how many quarters(0.25$)?: "))
+            dimes = int(input("how many dimes(0.10$)?: "))
+            nickles = int(input("how many nickles(0.05$)?: "))
+            pennies = int(input("how many pennies(0.01$)?: "))
+            flag = False
+            return round(quarters * 0.25 + dimes * 0.1 + nickles * 0.05 + pennies * 0.01, 2)
+        except:
+            print("You enter invalid data. Try again ")
 
 
 def deduct_resources(drink: dict):
@@ -84,13 +90,14 @@ while on:
         on = False
         break
     elif users_choice == "report":
-        print(
-            f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: ${money}")
-    else:
+        print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: ${money}")
+    elif users_choice == "latte" or users_choice == "espresso" or users_choice == "cappuccino":
         drink = MENU[users_choice]
         check = make_coffee(drink)
         if check != 0:
             money += drink["cost"]
+    else:
+        print("Invalid data. Try again")
 
 
 # TODO: 1. Create a main function that check users input and decides what to do next

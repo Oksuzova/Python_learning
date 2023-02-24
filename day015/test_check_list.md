@@ -1,5 +1,5 @@
 |     |                                                                                                                              |        |
-| --- |------------------------------------------------------------------------------------------------------------------------------| ------ |
+|-----|------------------------------------------------------------------------------------------------------------------------------|--------|
 | 1.  | **Prompt**                                                                                                                   |        |
 | 1.1 | The program asking user “What would you like? (espresso/latte/cappuccino):”                                                  | passed |
 | 1.2 | The prompt should show every time action has completed.                                                                      | passed |
@@ -20,4 +20,7 @@
 | 4.6 | Ensure that the program offers change if the user has inserted too much money.                                               | passed |
 | 5.  | **Make coffee**                                                                                                              |        |
 | 5.1 | Ensure that the program deducts the correct amount of resources from the machine's resources when making the selected drink. | passed |
-| 5.2 | Ensure that the program displays the correct message when the drink is made successfully.                                    | passed |
+| 5.2 | Ensure that the program displays the correct message when the drink is made successfully.                                    | passed | 
+| 6.  | **Negative tests**                                                                                                           |        |
+| 5.2 | Ensure that the program displays the error message if the user enters an invalid option when prompted for a drink            | failed |
+| 5.2 | Ensure that the program displays the error message if the user enters an invalid option when inserted the coins              | failed |

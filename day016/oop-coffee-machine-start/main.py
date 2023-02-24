@@ -26,4 +26,3 @@ while on:
                 print("Invalid data. Try again")
     else:
         print("Invalid data. Try again")
-

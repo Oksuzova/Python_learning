@@ -21,13 +21,17 @@ class MoneyMachine:
         """Returns the total calculated from coins inserted."""
         print("Please insert coins.")
         for coin in self.COIN_VALUES:
-            self.money_received += int(input(f"How many {coin}?: ")) * self.COIN_VALUES[coin]
+            c_v = input(f"How many {coin}?: ")
+            if not c_v.isdigit() or not range(1, 100):
+                return 0
+            self.money_received += int(c_v) * self.COIN_VALUES[coin]
         return self.money_received
 
     def make_payment(self, cost):
         """Returns True when payment is accepted, or False if insufficient."""
-        self.process_coins()
-        if self.money_received >= cost:
+        if self.process_coins() == 0:
+            return 0
+        elif self.money_received >= cost:
             change = round(self.money_received - cost, 2)
             print(f"Here is {self.CURRENCY}{change} in change.")
             self.profit += cost

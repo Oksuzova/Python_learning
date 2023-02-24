@@ -19,10 +19,9 @@ while on:
     elif users_input in menu.get_items():
         order = menu.find_drink(users_input)
         if make_coffee.is_resource_sufficient(order):
-            try:
-                if money.make_payment(order.cost):
-                    make_coffee.make_coffee(order)
-            except:
+            if money.make_payment(order.cost) == 0:
                 print("Invalid data. Try again")
+            else:
+                make_coffee.make_coffee(order)
     else:
         print("Invalid data. Try again")

@@ -3,8 +3,9 @@ from turtle import Turtle, Screen
 import random
 
 timmy = Turtle()
-timmy.speed(30)
+timmy.speed(50)
 turtle.colormode(255)
+turn = 5
 
 
 def random_color():
@@ -16,10 +17,10 @@ def random_color():
 
 def circle():
     timmy.circle(100)
-    timmy.left(5)
+    timmy.left(turn)
 
 
-for _ in range(int(360 / 5)):
+for _ in range(int(360 / turn)):
     timmy.color(random_color())
     circle()
 

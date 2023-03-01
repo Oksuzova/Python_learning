@@ -3,9 +3,11 @@ from turtle import Turtle, Screen
 import random
 
 timmy = Turtle()
+screen = Screen()
 turtle.colormode(255)
 timmy.speed(10)
 degrees = [0, 90, 270]
+screen.setup(500, 400)
 
 
 def random_color():
@@ -26,5 +28,4 @@ for _ in range(1000):
     timmy.color(random_color())
     random_walk()
 
-screen = Screen()
 screen.exitonclick()

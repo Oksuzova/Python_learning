@@ -10,6 +10,7 @@ screen.tracer(0)
 screen.listen()
 
 player = Player()
+car = CarManager()
 
 screen.onkey(player.go_up, key="Up")
 
@@ -20,6 +21,9 @@ while game_is_on:
 
     if player.ycor() == 280:
         player.next_level()
+
+    car.move()
+    car.new_car()
 
 
 screen.exitonclick()

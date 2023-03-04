@@ -10,25 +10,34 @@ screen.tracer(0)
 screen.listen()
 
 player = Player()
-car = CarManager()
+car_manager = CarManager()
+score = Scoreboard()
 
 screen.onkey(player.go_up, key="Up")
 
 game_is_on = True
-gen = 0
+gen_cars = 0
 
 while game_is_on:
     time.sleep(0.1)
     screen.update()
 
+    if gen_cars == 6:
+        car_manager.new_car()
+        gen_cars = 0
+
+    gen_cars += 1
+
     if player.ycor() == 280:
         player.next_level()
+        car_manager.up_difficulty()
+        score.next_level()
 
-    if gen == 6:
-        car.new_car()
-        gen = 0
+    car_manager.move()
 
-    car.move()
-    gen += 1
+    for car in car_manager.cars:
+        if player.distance(car) < 20:
+            score.game_over()
+            game_is_on = False
 
 screen.exitonclick()

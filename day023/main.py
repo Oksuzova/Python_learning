@@ -19,10 +19,10 @@ game_is_on = True
 gen_cars = 0
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(0.09)
     screen.update()
 
-    if gen_cars == 6:
+    if gen_cars == 3:
         car_manager.new_car()
         gen_cars = 0
 

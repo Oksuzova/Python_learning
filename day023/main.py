@@ -18,14 +18,11 @@ screen.onkey(player.go_up, key="Up")
 
 game_is_on = True
 
+car_manager.create_pool(40)
 
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-
-    gen_cars = random.randint(1, 6)
-    if gen_cars == 1:
-        car_manager.new_car()
 
     if player.ycor() == 280:
         player.next_level()

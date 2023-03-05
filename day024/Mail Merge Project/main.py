@@ -9,10 +9,11 @@
 
 with open("Input/Letters/starting_letter.txt", "r") as f:
     starting_letter = f.read()
-    with open("Input/Names/invited_names.txt", "r") as f:
-        invited_names = f.readlines()
-        for line in invited_names:
-            new_name = line.strip()
-            new_letter = starting_letter.replace("[name]", new_name)
-            with open(f"Output/ReadyToSend/Letter_for_{new_name}.txt", mode="w") as file:
-                file.write(f"{new_letter}")
+
+with open("Input/Names/invited_names.txt", "r") as f:
+    invited_names = f.readlines()
+    for line in invited_names:
+        new_name = line.strip()
+        new_letter = starting_letter.replace("[name]", new_name)
+        with open(f"Output/ReadyToSend/Letter_for_{new_name}.txt", mode="w") as file:
+            file.write(new_letter)

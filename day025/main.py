@@ -16,7 +16,7 @@
 
 import pandas
 
-# data = pandas.read_csv("weather_data.csv")
+data = pandas.read_csv("weather_data.csv")
 # print(type(data))
 # print(type(data["temp"]))
 
@@ -37,7 +37,6 @@ import pandas
 
 # Get data in Rows
 # print(data[data.day == "Monday"])
-
 # print(data[data.temp == data["temp"].max()])
 
 # Convert temperatures for C to F degrees
@@ -47,10 +46,10 @@ import pandas
 # print(temp_f)
 
 # create a dataframe from scratch
-data_dict = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
-}
-data = pandas.DataFrame(data_dict)
-print(data)
-data.to_csv("new_data_csv")
+# data_dict = {
+#     "students": ["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65]
+# }
+# data = pandas.DataFrame(data_dict)
+# print(data)
+# data.to_csv("new_data_csv")

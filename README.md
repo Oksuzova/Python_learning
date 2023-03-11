@@ -54,6 +54,8 @@
 
 <li> <b>Day 25</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day025">Working with CSV Data and the Pandas Library</a></li>
 
+<li> <b>Day 26</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day026">List Comprehension and the NATO Alphabet</a></li>
+
 
 </ul>
 

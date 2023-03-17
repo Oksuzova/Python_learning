@@ -3,6 +3,26 @@ from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
 import string
+import json
+
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+
+
+def search_password():
+    user_search = entry_web.get()
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No Data File Found")
+    else:
+        if user_search in data:
+            email_data = data[user_search]["email"]
+            password_data = data[user_search]["password"]
+            messagebox.showinfo(title=user_search, message=f"Email: {email_data}\nPassword: {password_data}")
+            pyperclip.copy(password_data)
+        else:
+            messagebox.showinfo(title="Error", message=f"No details for the {user_search} exist")
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -34,20 +54,33 @@ def save():
     website_data = entry_web.get()
     login_data = entry_log.get()
     pass_data = entry_pass.get()
+    new_data = {
+        website_data: {
+            "email": login_data,
+            "password": pass_data,
+        }
+    }
 
     if website_data == "" or pass_data == "":
         messagebox.showinfo(title="Oops", message="Please, don`t left any field empty")
-        return
+    else:
 
-    is_ok = messagebox.askyesno(title=website_data, message=f"These are the details entered:\n"
-                                                    f"Email:{login_data}\nPassword:{pass_data}\n"
-                                                    f"Is it ok to save?")
-
-    if is_ok:
-        entry_pass.delete(0, END)
-        entry_web.delete(0, END)
-        with open("data.txt", "a") as f:
-            f.write(f"{website_data} | {login_data} | {pass_data}\n")
+        try:
+            with open("data.json", "r") as data_file:
+                # Reading old data
+                data = json.load(data_file)
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+        else:
+            # Updating old data with new data
+            data.update(new_data)
+            with open("data.json", "w") as data_file:
+                # Saving update data
+                json.dump(data, data_file, indent=4)
+        finally:
+            entry_pass.delete(0, END)
+            entry_web.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -67,7 +100,7 @@ label_login.grid(column=0, row=2)
 label_pass = Label(text="Password:")
 label_pass.grid(column=0, row=3)
 
-entry_web = Entry(width=42)
+entry_web = Entry()
 entry_web.grid(column=1, row=1, columnspan=2, sticky="EW")
 entry_web.focus()
 entry_log = Entry(width=42)
@@ -81,6 +114,8 @@ gen_pass_button = Button(text="Generate Password", command=generate_pass)
 gen_pass_button.grid(column=2, row=3, sticky="EW")
 add_button = Button(text="Add", width=36, command=save)
 add_button.grid(column=1, row=4, columnspan=2, sticky="EW")
+search_button = Button(text="Search", command=search_password)
+search_button.grid(column=2, row=1, sticky="EW")
 
 
 window.mainloop()

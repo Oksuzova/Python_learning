@@ -18,6 +18,10 @@ import datetime as dt
 
 now = dt.datetime.now()
 
+today = now.date()
+
+print(today)
+
 year = now.year
 month = now.month
 day = now.day

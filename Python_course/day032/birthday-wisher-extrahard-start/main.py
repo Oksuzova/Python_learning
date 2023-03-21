@@ -17,7 +17,7 @@ num = random.choice(range(1, 3))
 letter = f"letter_templates\letter_{num}.txt"
 
 for key in data_dict:
-    if key["day"] == current_day and key["month"]:
+    if key["day"] == current_day and key["month"] == current_month:
         new_name = key["name"]
         with open(letter, "r") as f:
             name = f.read()
@@ -28,6 +28,6 @@ for key in data_dict:
             connection.login(user=my_email, password=password)
             connection.sendmail(
                 from_addr=my_email,
-                to_addrs="42toks@gmail.com",
+                to_addrs=key["email"],
                 msg=f"Subject:Happy Birthday\n\n{new_letter}"
             )

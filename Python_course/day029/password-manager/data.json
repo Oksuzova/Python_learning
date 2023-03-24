@@ -6,5 +6,9 @@
     "Ebay": {
         "email": "example@gmail.com",
         "password": "*L7#KvA0OoM73mI"
+    },
+    "Google": {
+        "email": "example@gmail.com",
+        "password": "p)fv)lzJFOf7+04"
     }
 }

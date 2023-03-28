@@ -12,7 +12,6 @@ QUANT_ARTICLES = 1
 
 load_dotenv("D:/Python_learning/Python_course/venv/environment_variables.env")
 alpha_api_key = os.getenv("ALPHA_API_KEY")
-
 now = dt.datetime.now()
 yesterday = str(now.date() - dt.timedelta(days=1))
 day_bef_yesterday = str(now.date() - dt.timedelta(days=2))

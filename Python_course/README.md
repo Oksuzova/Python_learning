@@ -56,6 +56,31 @@
 
 <li> <b>Day 26</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day026">List Comprehension and the NATO Alphabet</a></li>
 
+<li> <b>Day 27</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day027">Tkinter, *args, **kwargs and Creating GUI Programs</a></li>
+
+<li> <b>Day 28</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day028">Tkinter, Dynamic Typing and the Pomodoro GUI Application</a></li>
+
+<li> <b>Day 29</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day028">Building a Password Manager GUI App with Tkinter</a></li>
+
+<li> <b>Day 30</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day030">Errors, Exceptions and JSON Data: Improving the Password</a></li>
+
+<li> <b>Day 31</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day031">Flash Card App Capstone Project</a></li>
+
+<li> <b>Day 32</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day032">Send Email (smtplib) & Manage Dates (datetime)</a></li>
+
+<li> <b>Day 33</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day033">API Endpoints & API Parameters - ISS Overhead Notifier</a></li>
+
+<li> <b>Day 34</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day034">API Practice - Creating a GUI Quiz App</a></li>
+
+<li> <b>Day 35</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day035">Keys, Authentication & Environment Variables: Send SMS</a></li>
+
+<li> <b>Day 36</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day036">Stock Trading News Alert Project</a></li>
+
+<li> <b>Day 37</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day037">Habit Tracking Project: API Post Requests & Headers  </a></li>
+
+<li> <b>Day 38</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day038">Workout Tracking Using Google Sheets</a></li>
+
+<li> <b>Day 39</b> - <a href="https://github.com/Oksuzova/Python_100days_challenge/tree/main/day039">Capstone Part 1: Flight Deal Finder</a></li>
 
 </ul>
 

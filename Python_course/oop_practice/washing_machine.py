@@ -36,15 +36,15 @@ class WashingMode:
         cost = self.mode[user_input]["costs"] + self.dop_mode["drying"]["costs"]
         return cost
 
-    def with_drying(self):
-        print(f"You choose {user_input} with drying washing mode.\n"
-              f"Waiting time: {wash.get_time(user_input)} min.\n"
-              f"Costs: {wash.get_costs(user_input)} $")
-
-    def without_drying(self):
-        print(f"You choose {user_input} without drying washing mode.\n"
-              f"Waiting time: {self.mode[user_input]['time']} min.\n"
-              f"Costs: {self.mode[user_input]['costs']} $")
+    def with_drying(self, with_drying: bool):
+        if with_drying:
+            print(f"You choose {user_input} with drying washing mode.\n"
+                  f"Waiting time: {wash.get_time(user_input)} min.\n"
+                  f"Costs: {wash.get_costs(user_input)} $")
+        else:
+            print(f"You choose {user_input} without drying washing mode.\n"
+                  f"Waiting time: {self.mode[user_input]['time']} min.\n"
+                  f"Costs: {self.mode[user_input]['costs']} $")
 
 
 class Resources:
@@ -110,7 +110,7 @@ wash = WashingMode()
 resource = Resources()
 money = CheckPayment()
 
-with_drying = True
+with_drying = False
 on = True
 
 while on:
@@ -120,10 +120,9 @@ while on:
     elif user_input in wash.get_mode():
         drying = input("If you need drying? Enter 'yes' or 'not': ")
         if drying == "yes":
-            wash.with_drying()
-        else:
-            wash.without_drying()
-
+            with_drying = True
+            wash.with_drying(with_drying)
+        
         print("If it correct, please enter money.")
         deposit = float(input("How much money did you deposit?: "))
         if money.check_money(deposit, with_drying):

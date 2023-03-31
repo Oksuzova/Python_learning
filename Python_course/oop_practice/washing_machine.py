@@ -85,12 +85,13 @@ class Resources:
             price = wash.mode[user_input]['costs']
         self.resources["money"] += price
 
-    def waiting_process(self, user_input):
+    def waiting_process(self, user_input: str):
         min_left = int(wash.get_time(user_input))
         while min_left > 0:
             min_left -= int(input("How many minutes have passed? "))
             print(f"{min_left} min left")
         print("Your clothes are ready")
+
 
 class CheckPayment:
 

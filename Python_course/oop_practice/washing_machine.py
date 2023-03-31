@@ -121,8 +121,8 @@ while on:
         drying = input("If you need drying? Enter 'yes' or 'not': ")
         if drying == "yes":
             with_drying = True
-            wash.with_drying(with_drying)
-        
+        wash.with_drying(with_drying)
+
         print("If it correct, please enter money.")
         deposit = float(input("How much money did you deposit?: "))
         if money.check_money(deposit, with_drying):

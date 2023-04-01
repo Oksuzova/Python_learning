@@ -32,12 +32,10 @@ class Resources:
               f"conditioner: {self.resources['conditioner']}\n"
               f"money: {self.resources['money']}")
 
-
     def check_resources(self, user_input):
         if self.mode_resources[user_input]["washing powder"] <= self.resources["washing powder"]:
             if self.mode_resources[user_input]["conditioner"] <= self.resources["conditioner"]:
                 return True
-
 
     def wash_process(self, user_input: str, with_drying: bool):
         self.resources["washing powder"] -= self.mode_resources[user_input]["washing powder"]

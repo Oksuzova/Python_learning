@@ -37,4 +37,3 @@ while on:
 
     else:
         print("Please, enter correct mode.")
-

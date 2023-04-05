@@ -19,5 +19,5 @@ class Shelf:
     def remove(self, name: str):
         """remove book"""
         if name in self.books:
-            self.books.remove(name)
+            return self.books.remove(name)
 

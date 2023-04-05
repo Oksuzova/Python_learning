@@ -16,24 +16,18 @@ class Closet:
 
     def reading(self, name: str) -> None:
         """ read the book"""
-        if name in self.no_read.books:
-            book = self.no_read.books[self.no_read.books.index(name)]
-            self.no_read.remove(book.name)
-            self.read.add(book)
-            book.set_read()
-        return None
+        book = self.no_read.get(name)
+        self.no_read.remove(book.name)
+        self.read.add(book)
+        book.set_read()
 
     def retrieve(self, name: str) -> Book:
         """return book to library (move from closet)"""
-        if name in self.no_read.books:
-            book = self.no_read.books[self.no_read.books.index(name)]
-            self.no_read.remove(book.name)
-            return book
-        if name in self.read.books:
-            book = self.read.books[self.read.books.index(name)]
-            self.read.remove(book.name)
-            return book
-
+        if n_book := self.no_read.get(name):
+            self.no_read.remove(n_book.name)
+        if r_book := self.no_read.get(name):
+            self.read.remove(n_book.name)
+        return n_book or r_book
 
     def total(self) -> int:
         """get number of all the books"""

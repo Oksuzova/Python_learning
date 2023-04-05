@@ -8,20 +8,32 @@ class Closet:
         self.read = Shelf('Was read')
         self.no_read = Shelf('Will read')
 
-    def take(self, book: Book):
+    def take(self, name, author) -> Book:
         """ add new book as unread"""
+        book = Book(name=name, author=author)
         self.no_read.add(book)
+        return book
 
-    def reading(self, book: Book):
+    def reading(self, name: str) -> None:
         """ read the book"""
-        self.no_read.remove(book.name)
-        self.read.add(book)
-        book.set_read()
+        if name in self.no_read.books:
+            book = self.no_read.books[self.no_read.books.index(name)]
+            self.no_read.remove(book.name)
+            self.read.add(book)
+            book.set_read()
+        return None
 
-    def retrieve(self, book: Book):
+    def retrieve(self, name: str) -> Book:
         """return book to library (move from closet)"""
-        self.no_read.remove(book.name)
-        self.read.remove(book.name)
+        if name in self.no_read.books:
+            book = self.no_read.books[self.no_read.books.index(name)]
+            self.no_read.remove(book.name)
+            return book
+        if name in self.read.books:
+            book = self.read.books[self.read.books.index(name)]
+            self.read.remove(book.name)
+            return book
+
 
     def total(self) -> int:
         """get number of all the books"""

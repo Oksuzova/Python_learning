@@ -13,8 +13,8 @@ class Light(Color):
     def state(self, enable):
         self.enabled = enable
 
-    def __str__(self):
-        return f'<{self.color} is {"enable" if self.enabled else "disable"}>'
+    # def __str__(self):
+    #     return f'<{self.color} is {"enable" if self.enabled else "disable"}>'
 
     def __repr__(self):
         return f'<{self.color} is {"enable" if self.enabled else "disable"}>'
@@ -40,8 +40,8 @@ class TraficLight:
     def __str__(self):
         return f'{self.green}\n{self.yellow}\n{self.red}\n'
 
-    def __repr__(self):
-        return f'{self.green}\n{self.yellow}\n{self.red}\n'
+    # def __repr__(self):
+    #     return f'{self.green}\n{self.yellow}\n{self.red}\n'
 
 
 t = TraficLight()
@@ -50,3 +50,8 @@ t.stopp()
 print(t)
 t.run()
 print(t)
+
+
+
+
+

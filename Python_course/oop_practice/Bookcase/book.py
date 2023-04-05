@@ -19,7 +19,7 @@ class Book:
         self.read = True
 
     def is_read(self) -> bool:
-        return False
+        return self.read
 
     def __eq__(self, other: Union[str, Book]):
         if isinstance(other, str):

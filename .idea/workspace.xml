@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43467e8e-94a1-468f-b0bb-6e7bd7233e3b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/book_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/book_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/bookshelf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/bookshelf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/book.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +150,7 @@
       <workItem from="1678698200834" duration="7502000" />
       <workItem from="1678728904560" duration="2656000" />
       <workItem from="1678960999833" duration="89934000" />
-      <workItem from="1680016354693" duration="124588000" />
+      <workItem from="1680016354693" duration="124895000" />
     </task>
     <servers />
   </component>
@@ -161,7 +159,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Python_learning$test.coverage" NAME="test Coverage Results" MODIFIED="1680194681069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
-    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1680727683763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
+    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1680728532107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$bookshelf.coverage" NAME="bookshelf Coverage Results" MODIFIED="1680647470163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$flight_search.coverage" NAME="flight_search Coverage Results" MODIFIED="1680187503603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
     <SUITE FILE_PATH="coverage/Python_learning$TriangleChecker.coverage" NAME="TriangleChecker Coverage Results" MODIFIED="1680278732501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />

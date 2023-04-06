@@ -6,9 +6,7 @@ from book_manager import Closet
 
 name = "Name"
 author = "Author"
-shelf_name = "Bookshaelf"
-shelf_1 = "Shelf_1"
-shelf_2 = "Shelf_2"
+shelf_name = "Bookshelf"
 
 
 class TestBook(unittest.TestCase):

@@ -19,7 +19,7 @@ class Closet:
         book = self.no_read.get(name)
         self.no_read.remove(book.name)
         self.read.add(book)
-        book.set_read()
+        book.is_read = True
 
     def retrieve(self, name: str) -> Book:
         """return book to library (move from closet)"""
@@ -29,18 +29,21 @@ class Closet:
             self.read.remove(n_book.name)
         return n_book or r_book
 
-    def total(self) -> int:
-        """get number of all the books"""
-        total = len(self.no_read.books) + len(self.read.books)
-        return total
-
+    @property
     def count_unread(self) -> int:
         """get number of unread books"""
-        return len(self.no_read.books)
+        return len(self.no_read)
 
+    @property
     def count_read(self) -> int:
         """get number of read books"""
-        return len(self.read.books)
+        return len(self.read)
+
+    @property
+    def total(self) -> int:
+        """get number of all the books"""
+        total = len(self.no_read) + len(self.read)
+        return total
 
     def __str__(self):
         """<return two list with names of books>"""

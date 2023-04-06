@@ -7,7 +7,7 @@ class Book:
     def __init__(self, name, author, read=False):
         self.name = name
         self.author = author
-        self.read = read
+        self._read = read
 
     def get_name(self) -> str:
         return self.name
@@ -15,11 +15,13 @@ class Book:
     def get_author(self) -> str:
         return self.author
 
-    def set_read(self) -> None:
-        self.read = True
+    @property
+    def _is_read(self) -> bool:
+        return self._read
 
-    def is_read(self) -> bool:
-        return self.read
+    @_is_read.setter
+    def _is_read(self, value) -> None:
+        self._read = value
 
     def __eq__(self, other: Union[str, Book]):
         if isinstance(other, str):

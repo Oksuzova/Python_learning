@@ -5,9 +5,9 @@ from book import Book
 class TestBook(unittest.TestCase):
 
     def setUp(self):
-        self.name = "Name"
-        self.author = "Author"
-        self.book = Book(name=self.name, author=self.author)
+        name = "Name"
+        author = "Author"
+        self.book = Book(name=name, author=author)
 
     def test_get_name(self):
         self.assertEqual(self.book.get_name(), "Name")

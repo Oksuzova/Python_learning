@@ -16,11 +16,11 @@ class Book:
         return self.author
 
     @property
-    def _is_read(self) -> bool:
+    def read(self) -> bool:
         return self._read
 
-    @_is_read.setter
-    def _is_read(self, value) -> None:
+    @read.setter
+    def read(self, value) -> None:
         self._read = value
 
     def __eq__(self, other: Union[str, Book]):

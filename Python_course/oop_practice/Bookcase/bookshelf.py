@@ -19,7 +19,7 @@ class Shelf:
     def remove(self, name: str):
         """remove book"""
         if name in self.books:
-            return self.books.remove(name)
+            return self.books.pop(self.books.index(name))
 
     def __len__(self):
         return len(self.books)

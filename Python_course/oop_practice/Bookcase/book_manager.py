@@ -1,5 +1,6 @@
 from book import Book
 from bookshelf import Shelf
+from typing import Union
 
 
 class Closet:
@@ -16,18 +17,20 @@ class Closet:
 
     def reading(self, name: str) -> None:
         """ read the book"""
-        book = self.no_read.get(name)
-        self.no_read.remove(book.name)
-        self.read.add(book)
-        book.is_read = True
+        book = self.no_read.remove(name)
+        if book:
+            book.is_read = True
+            self.read.add(book)
+        else:
+            print(f"Book with name {name} is not found in shelf {self.no_read.name}.")
 
-    def retrieve(self, name: str) -> Book:
+    def retrieve(self, name: str) -> Union[Book, None]:
         """return book to library (move from closet)"""
-        if n_book := self.no_read.get(name):
-            self.no_read.remove(n_book.name)
-        if r_book := self.no_read.get(name):
-            self.read.remove(n_book.name)
-        return n_book or r_book
+        book = self.no_read.remove(name) or self.read.remove(name)
+        if book:
+            return book
+        else:
+            print(f"Book with name {name} is not found in bookshelf.")
 
     @property
     def count_unread(self) -> int:
@@ -47,10 +50,6 @@ class Closet:
 
     def __str__(self):
         """<return two list with names of books>"""
-        unread_books = ""
-        for num in range(len(self.no_read.books)):
-            unread_books += str(f"{self.no_read.books[num]}; ")
-        read_books = ""
-        for num in range(len(self.read.books)):
-            read_books += str(f"{self.read.books[num]}; ")
+        unread_books = "; ".join(str(x) for x in self.no_read.books)
+        read_books = "; ".join(str(x) for x in self.read.books)
         return f"Unread books : {unread_books}\nRead books: {read_books}"

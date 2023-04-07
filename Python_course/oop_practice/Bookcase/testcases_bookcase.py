@@ -62,24 +62,34 @@ class TestBookManager(unittest.TestCase):
 
     def setUp(self):
         self.closet = Closet()
-        self.book = Book(name=name, author=author, read=True)
+
 
     def test_take(self):
-        book = self.book
-        self.assertEqual(self.closet.take(name=book.name, author=book.author), self.book)
-        self.assertEqual(len(self.closet.no_read), 1, msg="Book was taken, but still present") # this?
-        self.assertEqual(self.closet.count_unread, 1, msg="Book was taken, but still present") # or this?
+        book = Book(name=name, author=author)
+        self.assertEqual(self.closet.take(name=book.name, author=book.author), book)
+        self.assertEqual(len(self.closet.no_read), 1, msg="Book was taken, but still present")
+        self.assertEqual(self.closet.count_unread, 1, msg="Book was taken, but still present")
 
     def test_reading(self):
-        book = self.book
-        self.closet.no_read.add(book)
+        book = self.closet.take(name=name, author=author)
         self.assertEqual(self.closet.reading(book.name), None, msg="None wasn`t return")
+        self.assertTrue(book.read, msg="Book wasn`t read state")
         self.assertEqual(self.closet.count_unread, 0, msg="Book wasn`t deleted from unread shelf")
-        self.assertEqual(book.read, True, msg="Book wasn`t read state")
         self.assertEqual(self.closet.count_read, 1, msg="Book wasn`t add to read shelf")
 
+    def test_reading_raise_error(self):
+        book = self.closet.take(name=name, author=author)
+
+        with self.assertRaises(AssertionError):
+            assert 1 == 2
+           # self.assertEqual(self.closet.reading("abc"), None, msg="None wasn`t return")
+
+        self.assertFalse(book.read, msg="Book wasn`t read state")
+        self.assertEqual(self.closet.count_read, 0, msg="Book wasn`t add to read shelf")
+        self.assertEqual(self.closet.count_unread, 1, msg="Book wasn`t add to read shelf")
+
     def test_retrieve(self):
-        book = self.book
+        book = Book(name=name, author=author)
         self.assertEqual(self.closet.retrieve(book.name), None, msg="None wasn`t return")
         self.closet.read.add(book)
         self.assertEqual(self.closet.retrieve(book.name), book, msg="Book wasn`t return")
@@ -89,19 +99,19 @@ class TestBookManager(unittest.TestCase):
         self.assertEqual(self.closet.count_read, 0, msg="Book was returned, but still present in read shelf")
 
     def test_count_unread(self):
-        book = self.book
+        book = Book(name=name, author=author)
         self.assertEqual(self.closet.count_unread, 0, msg="Does not return 0, if unread shelf is empty")
         self.closet.no_read.add(book)
         self.assertEqual(self.closet.count_unread, 1, msg="Does not return 1, if unread shelf len is 1")
 
     def test_count_read(self):
-        book = self.book
+        book = Book(name=name, author=author)
         self.assertEqual(self.closet.count_read, 0, msg="Does not return 0, if read shelf is empty")
         self.closet.read.add(book)
         self.assertEqual(self.closet.count_read, 1, msg="Does not return 1, if read shelf len is 1")
 
     def test_total(self):
-        book = self.book
+        book = Book(name=name, author=author)
         self.assertEqual(self.closet.total, 0, msg="Does not return 0, if bookshelf is empty")
         self.closet.no_read.add(book)
         self.closet.read.add(book)

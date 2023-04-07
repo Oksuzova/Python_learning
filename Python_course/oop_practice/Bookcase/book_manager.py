@@ -19,10 +19,10 @@ class Closet:
         """ read the book"""
         book = self.no_read.remove(name)
         if book:
-            book.is_read = True
+            book.read = True
             self.read.add(book)
         else:
-            print(f"Book with name {name} is not found in shelf {self.no_read.name}.")
+            raise ValueError(f"Book with name {name} is not found in shelf {self.no_read.name}.")
 
     def retrieve(self, name: str) -> Union[Book, None]:
         """return book to library (move from closet)"""

@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43467e8e-94a1-468f-b0bb-6e7bd7233e3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Testing/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/book_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/book_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/testcases_bookcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/testcases_bookcase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +39,23 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Python_learning/Python_course/oop_practice/Bookcase/testcases_bookcase.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Python_learning/Python_course/oop_practice/Bookcase/testcases_bookcase.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Python_learning\Python_course\day028\pomodoro-oop" />
@@ -59,7 +65,7 @@
       <recent name="D:\Python_learning\Python_course\day039" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in Bookcase">
+  <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Python_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,22 +89,22 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for testcases_bookcase.TestBookManager.test_count_read" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for main.TestStringMethods.test_split" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Python_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testcases_bookcase.TestBookManager.test_count_read&quot;" />
+      <option name="_new_target" value="&quot;main.TestStringMethods.test_split&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for testcases_bookcase.TestBookManager.test_count_unread" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for testcases_bookcase.TestBookManager" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Python_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,7 +115,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testcases_bookcase.TestBookManager.test_count_unread&quot;" />
+      <option name="_new_target" value="&quot;testcases_bookcase.TestBookManager&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -128,6 +134,21 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for testcases_bookcase.TestBookManager.test_reading_raise_error" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python_learning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;testcases_bookcase.TestBookManager.test_reading_raise_error&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for testcases_bookcase.TestBookManager.test_retrieve" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Python_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,21 +161,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;testcases_bookcase.TestBookManager.test_retrieve&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for testcases_bookcase.TestBookManager.test_take" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Python_learning" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testcases_bookcase.TestBookManager.test_take&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -188,19 +194,19 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python tests.Unittests in Bookcase" />
-      <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_count_read" />
-      <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_count_unread" />
+      <item itemvalue="Python tests.Python tests for main.TestStringMethods.test_split" />
+      <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager" />
+      <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_reading_raise_error" />
       <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_reading" />
       <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_retrieve" />
-      <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_take" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_count_read" />
-        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_count_unread" />
-        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_retrieve" />
         <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_reading" />
-        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_take" />
+        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager" />
+        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_retrieve" />
+        <item itemvalue="Python tests.Python tests for testcases_bookcase.TestBookManager.test_reading_raise_error" />
+        <item itemvalue="Python tests.Python tests for main.TestStringMethods.test_split" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +226,8 @@
       <workItem from="1678698200834" duration="7502000" />
       <workItem from="1678728904560" duration="2656000" />
       <workItem from="1678960999833" duration="89934000" />
-      <workItem from="1680016354693" duration="148882000" />
+      <workItem from="1680016354693" duration="152623000" />
+      <workItem from="1680860991718" duration="10930000" />
     </task>
     <servers />
   </component>
@@ -232,6 +239,7 @@
     <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1680818150850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day030" />
     <SUITE FILE_PATH="coverage/Python_learning$bookshelf.coverage" NAME="bookshelf Coverage Results" MODIFIED="1680647470163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$flight_search.coverage" NAME="flight_search Coverage Results" MODIFIED="1680187503603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
+    <SUITE FILE_PATH="coverage/Python_learning$Doctests_in_abstract_factory.coverage" NAME="Doctests in abstract_factory Coverage Results" MODIFIED="1680862445248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/python_patterns/patterns/creational" />
     <SUITE FILE_PATH="coverage/Python_learning$TriangleChecker.coverage" NAME="TriangleChecker Coverage Results" MODIFIED="1680278732501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />
     <SUITE FILE_PATH="coverage/Python_learning$book.coverage" NAME="book Coverage Results" MODIFIED="1680776504655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$Soda_water.coverage" NAME="Soda_water Coverage Results" MODIFIED="1680276159466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />
@@ -239,8 +247,8 @@
     <SUITE FILE_PATH="coverage/Python_learning$person_composite.coverage" NAME="person_composite Coverage Results" MODIFIED="1680626062670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Persons" />
     <SUITE FILE_PATH="coverage/Python_learning$person.coverage" NAME="person Coverage Results" MODIFIED="1680645975799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Persons" />
     <SUITE FILE_PATH="coverage/Python_learning$ui.coverage" NAME="ui Coverage Results" MODIFIED="1679505197033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day034/quizzler-app-start" />
-    <SUITE FILE_PATH="coverage/Python_learning$.coverage" NAME=" Coverage Results" MODIFIED="1680817921392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
-    <SUITE FILE_PATH="coverage/Python_learning$Unittests_in_Bookcase.coverage" NAME="Unittests in Bookcase Coverage Results" MODIFIED="1680818196893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Python_learning$.coverage" NAME=" Coverage Results" MODIFIED="1680889667039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
+    <SUITE FILE_PATH="coverage/Python_learning$Unittests_in_Bookcase.coverage" NAME="Unittests in Bookcase Coverage Results" MODIFIED="1680820024999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Python_learning$smtplib.coverage" NAME="smtplib Coverage Results" MODIFIED="1679324294378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day032" />
     <SUITE FILE_PATH="coverage/Python_learning$book_manager.coverage" NAME="book_manager Coverage Results" MODIFIED="1680690427208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$test_suite_1.coverage" NAME="test_suite_1 Coverage Results" MODIFIED="1678730151474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Pytest/pytest_tutorial/my_tests" />

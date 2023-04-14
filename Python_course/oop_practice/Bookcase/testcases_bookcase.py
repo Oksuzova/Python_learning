@@ -63,7 +63,6 @@ class TestBookManager(unittest.TestCase):
     def setUp(self):
         self.closet = Closet()
 
-
     def test_take(self):
         book = Book(name=name, author=author)
         self.assertEqual(self.closet.take(name=book.name, author=book.author), book)

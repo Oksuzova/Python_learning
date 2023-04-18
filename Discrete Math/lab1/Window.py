@@ -1,4 +1,4 @@
-from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtCore import QObject, pyqtSignal
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import QFont
 import func
@@ -31,6 +31,24 @@ class Window5(QWidget):
         super(Window5, self).__init__()
         self.setWindowTitle("Window5")
 
+class SetManager(QObject):
+
+    value_changed = pyqtSignal(str)
+
+    def __init__(self):
+        super().__init__()
+
+        self.setA = {}
+        self.setB = {}
+        self.setC = {}
+        self.setU = {}
+
+    def set_value(self, value, set_name):
+        print(value, set_name)
+        self.value_changed.emit(set_name)
+
+    def set_range(self, value, set_name):
+        print(value, set_name)
 
 
 class MainWindow(QMainWindow):
@@ -38,6 +56,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Window1")
+        self.set_manager = SetManager()
 
         self.set_horiz_layout_win_buts()
         self.set_hor_layout_row1()
@@ -46,6 +65,16 @@ class MainWindow(QMainWindow):
         self.set_hor_layout_row4()
         self.set_hor_layout_row5()
         self.set_main_layout()
+
+        self.le_a_set.textChanged.connect(self.disable_gen_but)
+        self.le_b_set.textChanged.connect(self.disable_gen_but)
+        self.le_c_set.textChanged.connect(self.disable_gen_but)
+        self.le_uniset_to.textChanged.connect(self.disable_gen_but)
+        self.le_uniset_from.textChanged.connect(self.disable_gen_but)
+
+        self.set_manager.value_changed.connect(lambda x: self.label_setA.setText(f"A: {{{x}}}"))
+
+
 
     def create_win_buts(self):
         self.window2 = Window2()
@@ -76,7 +105,7 @@ class MainWindow(QMainWindow):
         self.rb_random.label_for_setA = "Enter power A"
         self.rb_random.label_for_setB = "Enter power B"
         self.rb_random.label_for_setC = "Enter power C"
-        self.rb_random.label_for_setU = "Enter range \nfrom 0 to 255"
+        self.rb_random.label_for_setU = "Enter range from 0 to 255"
         self.rb_random.toggled.connect(self.on_clicked)
 
         self.rb_by_hand = QRadioButton("By hand")
@@ -90,6 +119,7 @@ class MainWindow(QMainWindow):
         self.layout_row1 = QHBoxLayout()
         self.layout_row1.addWidget(QLabel(func.var()))
         self.gen_but = QPushButton("Generate")
+        self.gen_but.setDisabled(True)
         self.bt_win2.clicked.connect(self.generate_sets)
 
         self.rb_for_create_set_labels()
@@ -104,56 +134,53 @@ class MainWindow(QMainWindow):
         self.label_A = QLabel("Enter power A")
         self.layout_row2.addWidget(self.label_A)
 
-        self.aset_edit_line = QLineEdit()
+        self.le_a_set = QLineEdit()
+
         self.layout_row2.addWidget(QLabel(":"))
-        self.layout_row2.addWidget(self.aset_edit_line)
+        self.layout_row2.addWidget(self.le_a_set)
 
         self.label_setA = QLabel("some set will be here")
         self.layout_row2.addWidget(self.label_setA)
-
 
     def set_hor_layout_row3(self):
         self.layout_row3 = QHBoxLayout()
         self.label_B = QLabel("Enter power B")
         self.layout_row3.addWidget(self.label_B)
 
-        self.bset_edit_line = QLineEdit()
+        self.le_b_set = QLineEdit()
         self.layout_row3.addWidget(QLabel(":"))
-        self.layout_row3.addWidget(self.bset_edit_line)
+        self.layout_row3.addWidget(self.le_b_set)
 
         self.label_setB = QLabel("some set will be here")
         self.layout_row3.addWidget(self.label_setB)
+
+        self.le_b_set.textEdited.connect(self.label_setA.setText)
 
     def set_hor_layout_row4(self):
         self.layout_row4 = QHBoxLayout()
         self.label_C = QLabel("Enter power C")
         self.layout_row4.addWidget(self.label_C)
 
-        self.cset_edit_line = QLineEdit()
+        self.le_c_set = QLineEdit()
         self.layout_row4.addWidget(QLabel(":"))
-        self.layout_row4.addWidget(self.cset_edit_line)
+        self.layout_row4.addWidget(self.le_c_set)
 
         self.label_setC = QLabel("some set will be here")
         self.layout_row4.addWidget(self.label_setC)
 
-
-
     def set_hor_layout_row5(self):
         self.layout_row5 = QHBoxLayout()
-        self.label_U = QLabel("Enter range \nfrom 0 to 255")
+        self.label_U = QLabel("Enter range from 0 to 255")
         self.layout_row5.addWidget(self.label_U)
 
-        self.u_from_edit_line = QLineEdit()
-        self.layout_row5.addWidget(QLabel())
-        self.layout_row5.addWidget(self.u_from_edit_line)
+        self.le_uniset_from = QLineEdit()
+        self.layout_row5.addWidget(self.le_uniset_from)
 
-        self.u_to_edit_line = QLineEdit()
-        self.layout_row5.addWidget(QLabel())
-        self.layout_row5.addWidget(self.u_to_edit_line)
+        self.le_uniset_to = QLineEdit()
+        self.layout_row5.addWidget(self.le_uniset_to)
 
         self.label_setU = QLabel("some set will be here")
         self.layout_row5.addWidget(self.label_setU)
-
 
     def set_main_layout(self):
         main_layout_for_win1 = QVBoxLayout()
@@ -188,14 +215,42 @@ class MainWindow(QMainWindow):
 
     def on_clicked(self):
         radioButton = self.sender()
-        if radioButton.isChecked():
-            self.label_A.setText(radioButton.label_for_setA)
-            self.label_B.setText(radioButton.label_for_setB)
-            self.label_C.setText(radioButton.label_for_setC)
-            self.label_U.setText(radioButton.label_for_setU)
+        self.le_a_set.clear()
+        self.le_b_set.clear()
+        self.le_c_set.clear()
+        self.le_uniset_to.clear()
+        self.le_uniset_from.clear()
+
+        self.label_A.setText(radioButton.label_for_setA)
+        self.label_B.setText(radioButton.label_for_setB)
+        self.label_C.setText(radioButton.label_for_setC)
+        self.label_U.setText(radioButton.label_for_setU)
+
+        if radioButton == self.rb_by_hand:
+            self.le_uniset_to.setDisabled(True)
+            self.le_uniset_from.setDisabled(True)
+        else:
+            self.le_uniset_to.setDisabled(False)
+            self.le_uniset_from.setDisabled(False)
+
+    def disable_gen_but(self):
+        if self.le_a_set.text() and self.le_b_set.text() and self.le_c_set.text() and \
+        self.le_uniset_to.text() and self.le_uniset_from:
+            self.gen_but.setDisabled(False)
+        else:
+            self.gen_but.setDisabled(True)
+        line_edit = self.sender()
+        if line_edit == self.le_a_set:
+            self.set_manager.set_value(self.le_a_set.text, "setA") if self.rb_by_hand.isChecked() \
+                else self.set_manager.set_range(self.le_a_set.text, "setA")
+
+
+
 
     def generate_sets(self):
         pass
+
+
 
 
 

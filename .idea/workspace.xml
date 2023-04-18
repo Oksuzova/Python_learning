@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43467e8e-94a1-468f-b0bb-6e7bd7233e3b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Python_learning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python_learning.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Discrete Math/lab1/Window.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Discrete Math/lab1/func.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Discrete Math/lab1/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/testcases_bookcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python_course/oop_practice/Bookcase/testcases_bookcase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/behavioral/test_observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/behavioral/test_observer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" afterDir="false" />
     </list>
@@ -230,7 +229,9 @@
       <workItem from="1678960999833" duration="89934000" />
       <workItem from="1680016354693" duration="152623000" />
       <workItem from="1680860991718" duration="15638000" />
-      <workItem from="1681376191754" duration="1867000" />
+      <workItem from="1681376191754" duration="28828000" />
+      <workItem from="1681806537341" duration="1476000" />
+      <workItem from="1681810978332" duration="12206000" />
     </task>
     <servers />
   </component>
@@ -239,15 +240,19 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Python_learning$test.coverage" NAME="test Coverage Results" MODIFIED="1680194681069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
-    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1681376620687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing" />
+    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1681822337560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
     <SUITE FILE_PATH="coverage/Python_learning$bookshelf.coverage" NAME="bookshelf Coverage Results" MODIFIED="1680647470163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$flight_search.coverage" NAME="flight_search Coverage Results" MODIFIED="1680187503603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
     <SUITE FILE_PATH="coverage/Python_learning$Doctests_in_abstract_factory.coverage" NAME="Doctests in abstract_factory Coverage Results" MODIFIED="1680862445248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/python_patterns/patterns/creational" />
+    <SUITE FILE_PATH="coverage/Python_learning$App.coverage" NAME="App Coverage Results" MODIFIED="1681744763057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/ttt" />
     <SUITE FILE_PATH="coverage/Python_learning$TriangleChecker.coverage" NAME="TriangleChecker Coverage Results" MODIFIED="1680278732501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />
     <SUITE FILE_PATH="coverage/Python_learning$book.coverage" NAME="book Coverage Results" MODIFIED="1680776504655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$Soda_water.coverage" NAME="Soda_water Coverage Results" MODIFIED="1680276159466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />
     <SUITE FILE_PATH="coverage/Python_learning$data.coverage" NAME="data Coverage Results" MODIFIED="1679501072047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day034/quizzler-app-start" />
     <SUITE FILE_PATH="coverage/Python_learning$person_composite.coverage" NAME="person_composite Coverage Results" MODIFIED="1680626062670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Persons" />
+    <SUITE FILE_PATH="coverage/Python_learning$Mainwindow.coverage" NAME="Mainwindow Coverage Results" MODIFIED="1681739819521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/ttt" />
+    <SUITE FILE_PATH="coverage/Python_learning$func.coverage" NAME="func Coverage Results" MODIFIED="1681735258615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
+    <SUITE FILE_PATH="coverage/Python_learning$Window.coverage" NAME="Window Coverage Results" MODIFIED="1681824267852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
     <SUITE FILE_PATH="coverage/Python_learning$person.coverage" NAME="person Coverage Results" MODIFIED="1680645975799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Persons" />
     <SUITE FILE_PATH="coverage/Python_learning$ui.coverage" NAME="ui Coverage Results" MODIFIED="1679505197033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day034/quizzler-app-start" />
     <SUITE FILE_PATH="coverage/Python_learning$.coverage" NAME=" Coverage Results" MODIFIED="1680889667039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />

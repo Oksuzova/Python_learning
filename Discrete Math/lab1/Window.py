@@ -2,6 +2,7 @@ from PyQt6.QtCore import QObject, pyqtSignal
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import QFont
 import func
+import re
 
 
 class Window2(QWidget):
@@ -44,11 +45,35 @@ class SetManager(QObject):
         self.setU = {}
 
     def set_value(self, value, set_name):
-        print(value, set_name)
+        if set_name == "setA":
+            self.setA = set(re.split(r"[,:; \s]", str(value())))
+            self.setA.discard("")
+            set_name = f"A: {self.setA}"
+        elif set_name == "setB":
+            self.setB = set(re.split(r"[,:; \s]", str(value())))
+            self.setB.discard("")
+            set_name = f"B: {self.setB}"
+        elif set_name == "setC":
+            self.setC = set(re.split(r"[,:; \s]", str(value())))
+            self.setB.discard("")
+            set_name = f"C: {self.setC}"
+
         self.value_changed.emit(set_name)
 
+
     def set_range(self, value, set_name):
-        print(value, set_name)
+        if set_name == "setA":
+            self.power_setA = value()
+            print(self.power_setA)
+        elif set_name == "setB":
+            self.power_setB = value()
+        elif set_name == "setC":
+            self.power_setC = value()
+        elif set_name == "uniset_to":
+            self.len_uniset_to = value()
+        elif set_name == "uniset_from":
+            self.len_uniset_from = value()
+
         self.value_changed.emit(set_name)
 
 
@@ -73,8 +98,11 @@ class MainWindow(QMainWindow):
         self.le_uniset_to.textChanged.connect(self.disable_gen_but)
         self.le_uniset_from.textChanged.connect(self.disable_gen_but)
 
-        self.set_manager.value_changed.connect(lambda x: self.label_setA.setText(f"A: {{{x}}}"))
 
+
+
+    def slot_set_label(self, name):
+        self.set_manager.value_changed.connect(lambda x: self.label_setA.setText(x))
 
     def create_win_buts(self):
         self.window2 = Window2()
@@ -143,6 +171,7 @@ class MainWindow(QMainWindow):
         self.layout_row2.addWidget(self.label_setA)
 
         self.le_a_set.textEdited.connect(self.label_setA.setText)
+
 
     def set_hor_layout_row3(self):
         self.layout_row3 = QHBoxLayout()

@@ -49,6 +49,7 @@ class SetManager(QObject):
 
     def set_range(self, value, set_name):
         print(value, set_name)
+        self.value_changed.emit(set_name)
 
 
 class MainWindow(QMainWindow):
@@ -73,7 +74,6 @@ class MainWindow(QMainWindow):
         self.le_uniset_from.textChanged.connect(self.disable_gen_but)
 
         self.set_manager.value_changed.connect(lambda x: self.label_setA.setText(f"A: {{{x}}}"))
-
 
 
     def create_win_buts(self):
@@ -142,6 +142,8 @@ class MainWindow(QMainWindow):
         self.label_setA = QLabel("some set will be here")
         self.layout_row2.addWidget(self.label_setA)
 
+        self.le_a_set.textEdited.connect(self.label_setA.setText)
+
     def set_hor_layout_row3(self):
         self.layout_row3 = QHBoxLayout()
         self.label_B = QLabel("Enter power B")
@@ -154,7 +156,8 @@ class MainWindow(QMainWindow):
         self.label_setB = QLabel("some set will be here")
         self.layout_row3.addWidget(self.label_setB)
 
-        self.le_b_set.textEdited.connect(self.label_setA.setText)
+        self.le_b_set.textEdited.connect(self.label_setB.setText)
+
 
     def set_hor_layout_row4(self):
         self.layout_row4 = QHBoxLayout()
@@ -167,6 +170,8 @@ class MainWindow(QMainWindow):
 
         self.label_setC = QLabel("some set will be here")
         self.layout_row4.addWidget(self.label_setC)
+
+        self.le_c_set.textEdited.connect(self.label_setC.setText)
 
     def set_hor_layout_row5(self):
         self.layout_row5 = QHBoxLayout()
@@ -181,6 +186,9 @@ class MainWindow(QMainWindow):
 
         self.label_setU = QLabel("some set will be here")
         self.layout_row5.addWidget(self.label_setU)
+
+        self.le_uniset_from.textEdited.connect(self.label_setU.setText)
+        self.le_uniset_to.textEdited.connect(self.label_setU.setText)
 
     def set_main_layout(self):
         main_layout_for_win1 = QVBoxLayout()
@@ -243,6 +251,18 @@ class MainWindow(QMainWindow):
         if line_edit == self.le_a_set:
             self.set_manager.set_value(self.le_a_set.text, "setA") if self.rb_by_hand.isChecked() \
                 else self.set_manager.set_range(self.le_a_set.text, "setA")
+        elif line_edit == self.le_b_set:
+            self.set_manager.set_value(self.le_b_set.text, "setB") if self.rb_by_hand.isChecked() \
+                else self.set_manager.set_range(self.le_b_set.text, "setB")
+        elif line_edit == self.le_c_set:
+            self.set_manager.set_value(self.le_c_set.text, "setC") if self.rb_by_hand.isChecked() \
+                else self.set_manager.set_range(self.le_c_set.text, "setC")
+        elif line_edit == self.le_uniset_to:
+            self.set_manager.set_value(self.le_uniset_to.text, "uniset_to") if self.rb_by_hand.isChecked() \
+                else self.set_manager.set_range(self.le_uniset_to.text, "uniset_to")
+        else:
+            self.set_manager.set_value(self.le_uniset_from.text, "uniset_from") if self.rb_by_hand.isChecked() \
+                else self.set_manager.set_range(self.le_uniset_from, "uniset_from")
 
 
 

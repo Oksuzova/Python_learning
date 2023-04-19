@@ -98,10 +98,6 @@ class MainWindow(QMainWindow):
         self.le_uniset_to.textChanged.connect(self.disable_gen_but)
         self.le_uniset_from.textChanged.connect(self.disable_gen_but)
 
-
-
-
-    def slot_set_label(self, name):
         self.set_manager.value_changed.connect(lambda x: self.label_setA.setText(x))
 
     def create_win_buts(self):

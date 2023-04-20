@@ -9,6 +9,7 @@ class SetManager(QObject):
 
     def __init__(self, *args, **kwargs):
         super().__init__()
+        self.sets_names = ["setA", "setB", "setC", "setU"]
         self._store = {i: set() for i in args}
         self._weight = {i: dict(min=0, max=0) for i in args}  # we use max value by default weight
 
@@ -40,28 +41,24 @@ class SetManager(QObject):
 
     def gen_random_sets(self):
         self.random_uniset_range = range(self._weight['setU']['min'], self._weight['setU']['max'])
-        all_sets = ["setA", "setB", "setC"]
-        for i in all_sets:
+        for i in self.sets_names[:-1]:
             self.set_value(i, set(random.sample(self.random_uniset_range, self.get_weight_value(i))))
         self.make_unisets()
         self.save_sets()
 
     def gen_by_hand_sets(self):
-        all_sets = ["setA", "setB", "setC"]
-        for i in all_sets:
+        for i in self.sets_names[:-1]:
             self._store.get(i)
         self.make_unisets()
         self.save_sets()
 
     def make_unisets(self):
-        all_sets = ["setA", "setB", "setC"]
         uniset = set()
-        for i in all_sets:
+        for i in self.sets_names[:-1]:
             uniset |= self.get_value(i)
         self.set_value("setU", uniset)
 
     def save_sets(self):
-        all_sets = ["setA", "setB", "setC", "setU"]
         with open ("result.txt", "w") as f:
-            for i in all_sets:
+            for i in self.sets_names:
                 f.write(f"{i}: {self.get_value(i)}\n")

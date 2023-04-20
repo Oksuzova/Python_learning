@@ -137,7 +137,7 @@ class MainWindow(QMainWindow):
         self.layout_row2.addWidget(QLabel(":"))
         self.layout_row2.addWidget(self.le_a_set)
 
-        self.label_setA = QLabel("some set will be here")
+        self.label_setA = QLabel()
         self.label_setA.setObjectName('setA')
         self.layout_row2.addWidget(self.label_setA)
 
@@ -151,7 +151,7 @@ class MainWindow(QMainWindow):
         self.layout_row3.addWidget(QLabel(":"))
         self.layout_row3.addWidget(self.le_b_set)
 
-        self.label_setB = QLabel("some set will be here")
+        self.label_setB = QLabel()
         self.label_setB.setObjectName('setB')
         self.layout_row3.addWidget(self.label_setB)
 
@@ -165,7 +165,7 @@ class MainWindow(QMainWindow):
         self.layout_row4.addWidget(QLabel(":"))
         self.layout_row4.addWidget(self.le_c_set)
 
-        self.label_setC = QLabel("some set will be here")
+        self.label_setC = QLabel()
         self.label_setC.setObjectName('setC')
         self.layout_row4.addWidget(self.label_setC)
 
@@ -182,7 +182,7 @@ class MainWindow(QMainWindow):
         self.le_uniset_to.setObjectName('setU_max')
         self.layout_row5.addWidget(self.le_uniset_to)
 
-        self.label_setU = QLabel("some set will be here")
+        self.label_setU = QLabel()
         self.label_setU.setObjectName('setU')
         self.layout_row5.addWidget(self.label_setU)
 
@@ -208,7 +208,6 @@ class MainWindow(QMainWindow):
                     self.le_b_set.text() and \
                     self.le_c_set.text():
                 self.gen_but.setDisabled(False)
-
             else:
                 self.gen_but.setDisabled(True)
         elif self.rb_random.isChecked():
@@ -218,18 +217,13 @@ class MainWindow(QMainWindow):
                     self.le_uniset_to.text() and \
                     self.le_uniset_from.text():
                 self.gen_but.setDisabled(False)
-
             else:
                 self.gen_but.setDisabled(True)
 
     def form_change(self):
         radioButton = self.sender()
         radioButton.objectName()
-        self.le_a_set.clear()
-        self.le_b_set.clear()
-        self.le_c_set.clear()
-        self.le_uniset_to.clear()
-        self.le_uniset_from.clear()
+        self.clear_forms()
 
         self.label_A.setText(radioButton.label_for_setA)
         self.label_B.setText(radioButton.label_for_setB)
@@ -270,6 +264,19 @@ class MainWindow(QMainWindow):
             self.set_manager.gen_by_hand_sets()
         else:
             self.set_manager.gen_random_sets()
+
+
+    def clear_forms(self):
+        self.label_setA.clear()
+        self.label_setB.clear()
+        self.label_setC.clear()
+        self.label_setU.clear()
+
+        self.le_a_set.clear()
+        self.le_b_set.clear()
+        self.le_c_set.clear()
+        self.le_uniset_to.clear()
+        self.le_uniset_from.clear()
 
 
 def main():

@@ -1,3 +1,5 @@
+
+
 def var():
     g = 21
     n = 8
@@ -47,4 +49,3 @@ def settostr(set):
 # a = {1, 2, 3}
 # b = {3, 1, 5}
 # print(a.difference(b))
-

@@ -16,7 +16,6 @@ def union_set(set1, set2):
     a_set = list(set1)
     b_set = list(set2)
     [a_set.append(item) for item in b_set if item not in a_set]
-    a_set.sort()
     return set(a_set)
 
 
@@ -25,7 +24,6 @@ def intersection_set(set1, set2):
     b_set = list(set2)
     c_set = []
     [c_set.append(item) for item in b_set if item in a_set]
-    c_set.sort()
     return set(c_set)
 
 
@@ -34,7 +32,6 @@ def difference_set(set1, set2):
     b_set = list(set2)
     c_set = []
     [c_set.append(item) for item in a_set if item not in b_set]
-    c_set.sort()
     return set(c_set)
 
 

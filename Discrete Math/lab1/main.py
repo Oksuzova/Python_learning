@@ -17,12 +17,80 @@ class SecondaryWindow(QWidget):
         super().show()
 
 
-class Window2(SecondaryWindow):
+class Window2(QMainWindow, SecondaryWindow):
 
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Window2")
+        self.setFixedSize(500, 300)
+        self.label_ready_setA = QLabel()
+        self.label_ready_setB = QLabel()
+        self.label_ready_setC = QLabel()
+        self.label_ready_setU = QLabel()
 
+        self.created_sets = {
+            "setA": 0,
+            "setB": 0,
+            "setC": 0,
+            "setU": 0,
+        }
+
+        self.ready_sets = {
+            "setA": self.label_ready_setA,
+            "setB": self.label_ready_setB,
+            "setC": self.label_ready_setC,
+            "setU": self.label_ready_setU,
+        }
+
+        self.bt_save = QPushButton("Save")
+        self.bt_step = QPushButton("Step")
+
+        self.set_main_layout()
+
+    def value_updated(self, n):
+        value = self.db.get_value(n)
+        for _ in self.ready_sets:
+            self.ready_sets[n].setText(f"{n}: {value}")
+            self.created_sets[n] = value
+            self.test()
+
+
+    def test(self):
+        self.textEdit.setPlainText(
+            f"D = A ∩ (A / (A / B) ∪ C = {self.created_sets['setA']} ∩ ({self.created_sets['setA']} / ({self.created_sets['setA']} / {self.created_sets['setB']}) ∪ {self.created_sets['setC']}")
+
+    def set_storage(self, man: SetManager):
+        self.db = man
+        self.db.value_changed.connect(self.value_updated)
+
+    def set_main_layout(self):
+        self.main_layout_for_win2 = QGridLayout()
+        self.setLayout(self.main_layout_for_win2)
+
+        self.main_layout_for_win2.addWidget(QLabel("Specified expression: D = A ∩ (A / (A / B) ∪ C"), 0, 0, 1, 2)
+        self.main_layout_for_win2.addWidget(self.label_ready_setA, 1, 0)
+        self.main_layout_for_win2.addWidget(self.label_ready_setB, 2, 0)
+        self.main_layout_for_win2.addWidget(self.label_ready_setC, 3, 0)
+        self.main_layout_for_win2.addWidget(self.label_ready_setU, 4, 0)
+
+        self.main_layout_for_win2.addWidget(self.bt_save, 1, 1, 2, 2)
+        self.main_layout_for_win2.addWidget(self.bt_step, 3, 1, 2, 2)
+
+        self.main_layout_for_win2.addWidget(QLabel("Calculations:"), 5, 1, 1, 4)
+
+        self.main_layout_for_win2.addWidget(self.label_ready_setA, 6, 0)
+        self.main_layout_for_win2.addWidget(self.label_ready_setB, 7, 0)
+        self.main_layout_for_win2.addWidget(self.label_ready_setC, 8, 0)
+        self.main_layout_for_win2.addWidget(self.label_ready_setU, 9, 0)
+
+        self.textEdit = QPlainTextEdit()
+        self.textEdit.setDisabled(True)
+        self.main_layout_for_win2.addWidget(self.textEdit, 6, 0, 7, 4)
+
+
+        self.w2 = QWidget()
+        self.w2.setLayout(self.main_layout_for_win2)
+        self.setCentralWidget(self.w2)
 
 class Window3(SecondaryWindow):
 
@@ -72,6 +140,10 @@ class MainWindow(QMainWindow):
 
         self.set_manager.value_changed.connect(self.on_value_changed)
         self.set_manager.range_changed.connect(self.on_range_changed)
+
+        self.window2.set_storage(self.set_manager)
+
+
 
     def create_win_buts(self):
         self.window2 = Window2()
@@ -246,14 +318,13 @@ class MainWindow(QMainWindow):
             self.set_manager.set_range(line_edit.objectName(), line_edit.text())
 
     def on_value_changed(self, v):
-        # if self.rb_by_hand.isChecked():
         control = self.findChild(QLabel,  v)
         if storage_value := self.set_manager.get_value(v):
             string = f'{v}: {{{storage_value}}}'
         else:
             string = f'{v} is empty'
-
         control.setText(string)
+
 
     def on_range_changed(self, v):
         control = self.findChild(QLabel, v)

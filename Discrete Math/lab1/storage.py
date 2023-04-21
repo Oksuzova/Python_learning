@@ -59,6 +59,8 @@ class SetManager(QObject):
         self.set_value("setU", uniset)
 
     def save_sets(self):
+
         with open ("result.txt", "w") as f:
             for i in self.sets_names:
-                f.write(f"{i}: {self.get_value(i)}\n")
+                set = self.get_value(i)
+                f.write(f"{i}: {set}\n")

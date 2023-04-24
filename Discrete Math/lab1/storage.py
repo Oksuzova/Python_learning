@@ -55,11 +55,10 @@ class SetManager(QObject):
     def make_unisets(self):
         uniset = set()
         for i in self.sets_names[:-1]:
-            uniset |= self.get_value(i)
+             uniset |= self.get_value(i)
         self.set_value("setU", uniset)
 
     def save_sets(self):
-
         with open ("result.txt", "w") as f:
             for i in self.sets_names:
                 set = self.get_value(i)

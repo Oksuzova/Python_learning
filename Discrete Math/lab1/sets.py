@@ -41,8 +41,8 @@ def settostr(set):
 
 
 
-# print(difference_set((1, 2, 3), (3, 1, 5)))
+# print(difference_set((1), (1)))
 #
-# a = {1, 2, 3}
-# b = {3, 1, 5}
+# a = {1}
+# b = {1}
 # print(a.difference(b))

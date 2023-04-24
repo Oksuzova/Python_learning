@@ -1,32 +1,29 @@
-from PyQt6.QtCore import QObject, pyqtSignal, Qt
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import *
-from PyQt6.QtGui import QFont
 from storage import SetManager
 import sets
 
 import re
 
 
-class SecondaryWindow(QWidget):
+class SecondaryWindow(QMainWindow, QWidget):
     def __init__(self):
         super(SecondaryWindow, self).__init__()
         self.setFocusPolicy(Qt.FocusPolicy.StrongFocus)
-
-    def show(self):
-        self.setFocus()
-        super().show()
-
-
-class Window2(QMainWindow, SecondaryWindow):
-
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Window2")
-        self.setFixedSize(500, 300)
         self.label_ready_setA = QLabel()
         self.label_ready_setB = QLabel()
         self.label_ready_setC = QLabel()
         self.label_ready_setU = QLabel()
+
+        self.label_ready_setX = QLabel()
+        self.label_ready_setY = QLabel()
+
+        self.bt_save = QPushButton("Save")
+        self.bt_save.setDisabled(True)
+        self.bt_step = QPushButton("Step")
+
+
+        self.step = 0
 
         self.created_sets = {
             "setA": 0,
@@ -40,28 +37,63 @@ class Window2(QMainWindow, SecondaryWindow):
             "setB": self.label_ready_setB,
             "setC": self.label_ready_setC,
             "setU": self.label_ready_setU,
+            "setX": self.label_ready_setX,
+            "setY": self.label_ready_setY,
         }
 
-        self.bt_save = QPushButton("Save")
-        self.bt_step = QPushButton("Step")
-
-        self.set_main_layout()
+    def set_storage(self, man: SetManager):
+        self.db = man
+        self.db.value_changed.connect(self.value_updated)
 
     def value_updated(self, n):
         value = self.db.get_value(n)
         for _ in self.ready_sets:
             self.ready_sets[n].setText(f"{n}: {value}")
             self.created_sets[n] = value
-            self.test()
+        self.label_ready_setX.setText(f"X: {self.db.get_value('setA')}")
+        self.label_ready_setY.setText(f"Y: {self.db.get_value('setB')}")
 
 
-    def test(self):
-        self.textEdit.setPlainText(
-            f"D = A ∩ (A / (A / B) ∪ C = {self.created_sets['setA']} ∩ ({self.created_sets['setA']} / ({self.created_sets['setA']} / {self.created_sets['setB']}) ∪ {self.created_sets['setC']}")
+    def show(self):
+        self.setFocus()
+        super().show()
 
-    def set_storage(self, man: SetManager):
-        self.db = man
-        self.db.value_changed.connect(self.value_updated)
+
+class Window2(SecondaryWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Window2")
+        self.setFixedSize(500, 300)
+
+        self.bt_step.clicked.connect(self.next_step)
+        self.bt_save.clicked.connect(self.save_res)
+
+        self.set_main_layout()
+
+    def next_step(self):
+        res1 = sets.difference_set(self.created_sets['setA'], self.created_sets['setB'])
+        res2 = sets.difference_set(self.created_sets['setA'], res1)
+        res3 = sets.intersection_set(self.created_sets['setA'], res2)
+        self.res4 = sets.union_set(res3, self.created_sets['setC'])
+        steps = [
+            f"STEP 1: D = A ∩ (A / (A / B) ∪ C = {self.created_sets['setA']} ∩ ({self.created_sets['setA']} / ({self.created_sets['setA']} / {self.created_sets['setB']}) ∪ {self.created_sets['setC']}\n",
+            f"STEP 2: D = A ∩ (A / (res) ∪ C = {self.created_sets['setA']} ∩ ({self.created_sets['setA']} / {res1}) ∪ {self.created_sets['setC']}\n",
+            f"STEP 3: D = A ∩ (res) ∪ C = {self.created_sets['setA']} ∩ {res2} ∪ {self.created_sets['setC']}\n",
+            f"STEP 4: D = (res) ∪ C = {res3} ∪ {self.created_sets['setC']}\n",
+            f"STEP 5: D = {self.res4}\n",
+            f"Calculations completed",
+        ]
+        self.textEdit.insertPlainText(steps[self.step])
+        self.step += 1
+        if self.step == 6:
+            self.bt_step.setDisabled(True)
+            self.bt_save.setDisabled(False)
+
+    def save_res(self):
+        with open("result.txt", "a") as f:
+            f.write(f"setD1: {self.res4}\n")
+        self.bt_save.setDisabled(True)
 
     def set_main_layout(self):
         self.main_layout_for_win2 = QGridLayout()
@@ -78,15 +110,9 @@ class Window2(QMainWindow, SecondaryWindow):
 
         self.main_layout_for_win2.addWidget(QLabel("Calculations:"), 5, 1, 1, 4)
 
-        self.main_layout_for_win2.addWidget(self.label_ready_setA, 6, 0)
-        self.main_layout_for_win2.addWidget(self.label_ready_setB, 7, 0)
-        self.main_layout_for_win2.addWidget(self.label_ready_setC, 8, 0)
-        self.main_layout_for_win2.addWidget(self.label_ready_setU, 9, 0)
-
         self.textEdit = QPlainTextEdit()
         self.textEdit.setDisabled(True)
         self.main_layout_for_win2.addWidget(self.textEdit, 6, 0, 7, 4)
-
 
         self.w2 = QWidget()
         self.w2.setLayout(self.main_layout_for_win2)
@@ -97,6 +123,56 @@ class Window3(SecondaryWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Window3")
+        self.setFixedSize(500, 300)
+
+        self.bt_save_w3 = QPushButton("Save")
+        self.bt_save_w3.setDisabled(True)
+        self.bt_step_w3 = QPushButton("Step")
+        self.bt_step_w3.clicked.connect(self.next_step_w3)
+        self.bt_save_w3.clicked.connect(self.save_res_w3)
+
+        self.set_main_layout()
+
+    def save_res_w3(self):
+        with open("result.txt", "a") as f:
+            f.write(f"setD2: {self.res2}\n")
+        self.bt_save_w3.setDisabled(True)
+
+    def next_step_w3(self):
+        res1 = sets.intersection_set(self.created_sets['setA'], self.created_sets['setB'])
+        self.res2 = sets.union_set(res1, self.created_sets['setC'])
+        steps = [
+            f"STEP 1: D = A ∩ B ∪ C = {self.created_sets['setA']} ∩ {self.created_sets['setB']}) ∪ {self.created_sets['setC']}\n",
+            f"STEP 2: D = (res) ∪ C = {res1} ∪ {self.created_sets['setC']}\n",
+            f"STEP 3: D = {self.res2}\n",
+            f"Calculations completed",
+        ]
+        self.textEdit.insertPlainText(steps[self.step])
+        self.step += 1
+        if self.step == 4:
+            self.bt_step_w3.setDisabled(True)
+            self.bt_save_w3.setDisabled(False)
+
+    def set_main_layout(self):
+        self.main_layout_for_win3 = QGridLayout()
+        self.setLayout(self.main_layout_for_win3)
+
+        self.main_layout_for_win3.addWidget(QLabel("Specified expression: D = A ∩ (A / (A / B) ∪ C"), 0, 0, 1, 2)
+        self.main_layout_for_win3.addWidget(self.label_ready_setA, 1, 0)
+        self.main_layout_for_win3.addWidget(self.label_ready_setB, 2, 0)
+
+        self.main_layout_for_win3.addWidget(self.bt_save_w3, 1, 1, 2, 2)
+        self.main_layout_for_win3.addWidget(self.bt_step_w3, 3, 1, 2, 2)
+
+        self.main_layout_for_win3.addWidget(QLabel("Calculations:"), 5, 1, 1, 4)
+
+        self.textEdit = QPlainTextEdit()
+        self.textEdit.setDisabled(True)
+        self.main_layout_for_win3.addWidget(self.textEdit, 6, 0, 7, 4)
+
+        self.w3 = QWidget()
+        self.w3.setLayout(self.main_layout_for_win3)
+        self.setCentralWidget(self.w3)
 
 
 class Window4(SecondaryWindow):
@@ -104,6 +180,63 @@ class Window4(SecondaryWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Window4")
+        self.set_manager = SetManager()
+
+        self.bt_calculate_w4 = QPushButton("Calculate")
+        self.bt_calculate_w4.clicked.connect(self.calculate)
+        self.bt_compare_w4 = QPushButton("Compare")
+        self.bt_compare_w4.clicked.connect(self.compare)
+        self.bt_compare_w4.setDisabled(True)
+
+        self.bt_save_w4 = QPushButton("Save")
+        self.bt_save_w4.clicked.connect(self.save_res_w4)
+
+        self.set_main_layout()
+
+    def save_res_w4(self):
+        with open("result.txt", "a") as f:
+            f.write(f"setZ1: {self.res1}\nsetZ2: {self.res2}")
+        self.bt_save_w4.setDisabled(True)
+
+    def calculate(self):
+        self.res1 = sets.intersection_set(self.created_sets['setA'], self.created_sets['setB'])
+        self.res2 = self.created_sets['setA'] & self.created_sets['setB']
+        self.label_author_alg = QLabel(f"Z = X ∩ Y = {self.created_sets['setA']} ∩ {self.created_sets['setB']} = {self.res1}")
+        self.label_built_alg = QLabel(f"Z = X ∩ Y = {self.created_sets['setA']} ∩ {self.created_sets['setB']} = {self.res2}")
+
+        self.main_layout_for_win4.addWidget(self.label_author_alg, 6, 0, 1, 2)
+        self.main_layout_for_win4.addWidget(self.label_built_alg, 7, 0, 1, 2)
+
+        self.bt_compare_w4.setDisabled(False)
+        self.bt_calculate_w4.setDisabled(True)
+
+    def compare(self):
+        self.label_compare_alg = QLabel(f"{self.res1} = {self.res2}")
+        self.main_layout_for_win4.addWidget(self.label_compare_alg, 8, 0)
+        self.bt_compare_w4.setDisabled(True)
+        self.add_save_bt()
+
+    def add_save_bt(self):
+        self.bt_save_w4 = QPushButton("Save")
+        self.bt_save_w4.clicked.connect(self.save_res_w4)
+        self.main_layout_for_win4.addWidget(self.bt_save_w4, 8, 2)
+
+    def set_main_layout(self):
+        self.main_layout_for_win4 = QGridLayout()
+        self.setLayout(self.main_layout_for_win4)
+
+        self.main_layout_for_win4.addWidget(QLabel("Specified expression: Z = X ∩ Y, X = A, Y = B"), 0, 0, 1, 2)
+        self.main_layout_for_win4.addWidget(self.label_ready_setX, 1, 0)
+        self.main_layout_for_win4.addWidget(self.label_ready_setY, 2, 0)
+
+        self.main_layout_for_win4.addWidget(self.bt_calculate_w4, 1, 1)
+        self.main_layout_for_win4.addWidget(self.bt_compare_w4, 3, 1)
+
+        self.main_layout_for_win4.addWidget(QLabel("Calculations:"), 5, 1, 1, 4)
+
+        self.w4 = QWidget()
+        self.w4.setLayout(self.main_layout_for_win4)
+        self.setCentralWidget(self.w4)
 
 
 class Window5(SecondaryWindow):
@@ -111,10 +244,61 @@ class Window5(SecondaryWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Window5")
+        self.set_manager = SetManager()
 
-    def show(self):
-        self.setFocus()
-        super().show()
+        self.set_main_layout()
+
+    def create_bts(self):
+        self.bt_read_d1 = QPushButton("Read Specified Set D1:")
+        self.bt_read_d2 = QPushButton("Read Simplified Set D2:")
+        self.bt_read_z1 = QPushButton("Read Author Algorithm Z1:")
+        self.bt_read_z2 = QPushButton("Read Built-In Algorithm Z2:")
+
+    def reading_d1(self):
+        with open("result.txt", "r") as f:
+            for line in f:
+                if line.startswith("setD1"):
+                    self.main_layout_for_win5.addWidget(QLabel(line.rstrip()), 0, 1)
+
+    def reading_d2(self):
+        with open("result.txt", "r") as f:
+            for line in f:
+                if line.startswith("setD2"):
+                    self.main_layout_for_win5.addWidget(QLabel(line.rstrip()), 1, 1)
+
+    def reading_z1(self):
+        with open("result.txt", "r") as f:
+            for line in f:
+                if line.startswith("setZ1"):
+                    self.main_layout_for_win5.addWidget(QLabel(line.rstrip()), 2, 1)
+
+    def reading_z2(self):
+        with open("result.txt", "r") as f:
+            for line in f:
+                if line.startswith("setZ2"):
+                    self.main_layout_for_win5.addWidget(QLabel(line.rstrip()), 3, 1)
+            self.main_layout_for_win5.addWidget(QLabel("D1 = D2, Z1 = Z2"), 4, 0, 1, 2, Qt.AlignmentFlag.AlignCenter)
+
+    def set_main_layout(self):
+        self.main_layout_for_win5 = QGridLayout()
+        self.setLayout(self.main_layout_for_win5)
+        self.create_bts()
+
+        self.main_layout_for_win5.addWidget((self.bt_read_d1), 0, 0)
+        self.bt_read_d1.clicked.connect(self.reading_d1)
+
+        self.main_layout_for_win5.addWidget((self.bt_read_d2), 1, 0)
+        self.bt_read_d2.clicked.connect(self.reading_d2)
+
+        self.main_layout_for_win5.addWidget((self.bt_read_z1), 2, 0)
+        self.bt_read_z1.clicked.connect(self.reading_z1)
+
+        self.main_layout_for_win5.addWidget((self.bt_read_z2), 3, 0)
+        self.bt_read_z2.clicked.connect(self.reading_z2)
+
+        self.w5 = QWidget()
+        self.w5.setLayout(self.main_layout_for_win5)
+        self.setCentralWidget(self.w5)
 
 
 class MainWindow(QMainWindow):
@@ -142,6 +326,8 @@ class MainWindow(QMainWindow):
         self.set_manager.range_changed.connect(self.on_range_changed)
 
         self.window2.set_storage(self.set_manager)
+        self.window3.set_storage(self.set_manager)
+        self.window4.set_storage(self.set_manager)
 
 
 
@@ -324,7 +510,6 @@ class MainWindow(QMainWindow):
         else:
             string = f'{v} is empty'
         control.setText(string)
-
 
     def on_range_changed(self, v):
         control = self.findChild(QLabel, v)

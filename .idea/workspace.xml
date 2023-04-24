@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43467e8e-94a1-468f-b0bb-6e7bd7233e3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Discrete Math/lab1/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/sets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/sets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/storage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/behavioral/test_observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/behavioral/test_observer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" afterDir="false" />
     </list>
@@ -42,24 +42,24 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Python_learning/Python_course/oop_practice/Bookcase/testcases_bookcase.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Python_learning/Python_course/oop_practice/Bookcase/testcases_bookcase.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Python_learning\Python_course\day028\pomodoro-oop" />
@@ -234,7 +234,8 @@
       <workItem from="1680860991718" duration="15638000" />
       <workItem from="1681376191754" duration="28828000" />
       <workItem from="1681806537341" duration="1476000" />
-      <workItem from="1681810978332" duration="111413000" />
+      <workItem from="1681810978332" duration="136396000" />
+      <workItem from="1682320705602" duration="3563000" />
     </task>
     <servers />
   </component>
@@ -253,13 +254,14 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_learning$test.coverage" NAME="test Coverage Results" MODIFIED="1682098151331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
-    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1682103453353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
+    <SUITE FILE_PATH="coverage/Python_learning$test.coverage" NAME="test Coverage Results" MODIFIED="1682157438916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
+    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1682324242449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
     <SUITE FILE_PATH="coverage/Python_learning$bookshelf.coverage" NAME="bookshelf Coverage Results" MODIFIED="1680647470163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$flight_search.coverage" NAME="flight_search Coverage Results" MODIFIED="1680187503603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
     <SUITE FILE_PATH="coverage/Python_learning$Doctests_in_abstract_factory.coverage" NAME="Doctests in abstract_factory Coverage Results" MODIFIED="1680862445248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/python_patterns/patterns/creational" />
     <SUITE FILE_PATH="coverage/Python_learning$App.coverage" NAME="App Coverage Results" MODIFIED="1681744763057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/ttt" />
     <SUITE FILE_PATH="coverage/Python_learning$TriangleChecker.coverage" NAME="TriangleChecker Coverage Results" MODIFIED="1680278732501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />
+    <SUITE FILE_PATH="coverage/Python_learning$sets.coverage" NAME="sets Coverage Results" MODIFIED="1682110047007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
     <SUITE FILE_PATH="coverage/Python_learning$book.coverage" NAME="book Coverage Results" MODIFIED="1680776504655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$Soda_water.coverage" NAME="Soda_water Coverage Results" MODIFIED="1680276159466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice" />
     <SUITE FILE_PATH="coverage/Python_learning$storage.coverage" NAME="storage Coverage Results" MODIFIED="1682021173245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />

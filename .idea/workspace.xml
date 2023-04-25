@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43467e8e-94a1-468f-b0bb-6e7bd7233e3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Discrete Math/lab2/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/sets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/sets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/storage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discrete Math/lab1/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Discrete Math/lab1/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/behavioral/test_observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/behavioral/test_observer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/python_patterns/tests/creational/test_abstract_factory.py" afterDir="false" />
@@ -235,7 +233,7 @@
       <workItem from="1681376191754" duration="28828000" />
       <workItem from="1681806537341" duration="1476000" />
       <workItem from="1681810978332" duration="136396000" />
-      <workItem from="1682320705602" duration="3563000" />
+      <workItem from="1682320705602" duration="25916000" />
     </task>
     <servers />
   </component>
@@ -254,8 +252,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_learning$test.coverage" NAME="test Coverage Results" MODIFIED="1682157438916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
-    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1682324242449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
+    <SUITE FILE_PATH="coverage/Python_learning$test.coverage" NAME="test Coverage Results" MODIFIED="1682432775231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab1" />
+    <SUITE FILE_PATH="coverage/Python_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1682433465185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Discrete Math/lab2" />
     <SUITE FILE_PATH="coverage/Python_learning$bookshelf.coverage" NAME="bookshelf Coverage Results" MODIFIED="1680647470163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/oop_practice/Bookcase" />
     <SUITE FILE_PATH="coverage/Python_learning$flight_search.coverage" NAME="flight_search Coverage Results" MODIFIED="1680187503603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python_course/day039/flight-deals-start" />
     <SUITE FILE_PATH="coverage/Python_learning$Doctests_in_abstract_factory.coverage" NAME="Doctests in abstract_factory Coverage Results" MODIFIED="1680862445248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/python_patterns/patterns/creational" />

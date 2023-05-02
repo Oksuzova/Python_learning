@@ -1,2 +1,2 @@
-{'Дмитро', 'Юлія', 'Максим', 'Марта', 'Ірина', 'Оксана'}
- {'Артем', 'Арсен', 'Юлія', 'Олена', 'Сергій', 'Василь'}
+['Vitaliy', 'Dmitro', 'Artem']
+['Anastasia', 'Zoya', 'Irina', 'Olena', 'Arsen', 'Maxim', 'Sergey', 'Oleg', 'Petro', 'Oksana', 'Maria', 'Olga']

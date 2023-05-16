@@ -17,9 +17,11 @@ class SecondaryWindow(QMainWindow, QWidget):
 
         self.db = None
 
+
     def set_storage(self, man: SetManager):
         self.db = man
         self.on_db_set()
+
 
     def on_db_set(self):
         raise NotImplementedError
@@ -28,47 +30,7 @@ class SecondaryWindow(QMainWindow, QWidget):
         self.setFocus()
         super().show()
 
-    def is_father(self):
-        set_a = list(self.db.get_value("set_A"))
-        father_set_a = []
-        child_set_b = []
-        set_b = list(self.db.get_value("set_B"))
-        item_f = []
-        item_ch = []
 
-        for i in set_a:
-            if i in self.db.mens_names:
-                father_set_a.append(set_a.index(i))
-                item_f = random.choices(father_set_a, k=len(father_set_a))
-        for i in set_b:
-            child_set_b.append(set_b.index(i))
-            item_ch = random.sample(child_set_b, int(len(child_set_b) // 1.5))
-
-
-        self.fathers_relation = list(zip(item_f, item_ch))
-        return self.fathers_relation
-
-    def is_husband(self):
-        set_a = list(self.db.get_value("set_A"))
-        husband_set_a = []
-        set_b = list(self.db.get_value("set_B"))
-        wife_set_b = []
-        item_h = []
-        item_w = []
-
-        for i in set_a:
-            if i in self.db.mens_names:
-                husband_set_a.append(set_a.index(i))
-                item_h = random.sample(husband_set_a, k=len(husband_set_a))
-
-        for i in set_b:
-            if i in self.db.womens_names:
-                wife_set_b.append(set_b.index(i))
-                item_w = random.sample(wife_set_b, k=len(wife_set_b))
-
-        marital_relation = set(zip(item_h, item_w))
-        marital_relation -= set(self.fathers_relation)
-        return list(marital_relation)
 
 class Window2(SecondaryWindow):
 
@@ -109,6 +71,7 @@ class Window2(SecondaryWindow):
             f.write(f"{self.db.get_value('set_A')}\n{self.db.get_value('set_B')}")
         self.bt_save.setDisabled(True)
         self.bt_clear.setDisabled(True)
+        self.db.update_graph()
 
     def clear_sets(self):
         self.db.set_A.clear()
@@ -175,10 +138,8 @@ class Window3(SecondaryWindow):
         setB_lab = list(self.db.get_value("set_B"))
         self.gr.labels(setA_lab, setB_lab)
         self.gr2.labels(setA_lab, setB_lab)
-        is_father = self.is_father()
-        is_husband = self.is_husband()
-        self.gr.set_relation(is_father)
-        self.gr2.set_relation(is_husband)
+        self.gr.set_relation(self.db.is_father)
+        self.gr2.set_relation(self.db.is_husband)
 
     def on_db_set(self):
         self.db.add_item_to_set.connect(self.set_labels)
@@ -217,56 +178,97 @@ class Window3(SecondaryWindow):
         self.w3.setLayout(self.main_layout)
         self.setCentralWidget(self.w3)
 
-    # def paintEvent(self, e):
-    #     painter = QPainter(self)
-    #     painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
-    #     painter.setBrush(Qt.GlobalColor.black)
-    #     painter.setPen(Qt.GlobalColor.black)
-    #
-    #     painter.drawEllipse(self.lb_set_A[0].pos().x(), self.lb_set_A[0].pos().y() + 40, 30, 30)
-    #     painter.drawEllipse(self.lb_set_A[1].pos().x(), self.lb_set_A[1].pos().y() + 40, 30, 30)
-    #
-    #     # self.draw_arrow(painter, self.labels_1[1], self.labels_2[1])
-    #     # self.draw_arrow(painter, self.labels_2[2], self.labels_1[2])
-    #     # self.draw_arrow(painter, self.labels_2[3], self.labels_1[4])
-    #     # self.draw_arrow(painter, self.labels_2[3], self.labels_1[5])
-    #     # self.draw_arrow(painter, self.labels_1[5], self.labels_2[6])
-    #     # self.draw_arrow(painter, self.labels_1[5], self.labels_2[7])
-    #     # self.draw_arrow(painter, self.labels_1[8], self.labels_2[8])
-    #     # self.draw_arrow(painter, self.labels_2[8], self.labels_1[8])
-    #     # self.draw_arrow(painter, self.labels_1[7], self.labels_1[7])
-    #     # self.draw_arrow(painter, self.labels_1[4], self.labels_2[4])
-    #
-    # def draw_arrow(self, paint: QPainter, frm: QDLabel, to: QDLabel):
-    #     arrowSize = 12
-    #     line = frm.path_to(to).toLineF()
-    #
-    #     angle = math.atan2(-line.dy(), line.dx())
-    #
-    #     arrowP1 = line.p1() + QPointF(math.sin(angle + math.pi / 3) * arrowSize,
-    #                                   math.cos(angle + math.pi / 3) * arrowSize)
-    #
-    #     arrowP2 = line.p1() + QPointF(math.sin(angle + math.pi - math.pi / 3) * arrowSize,
-    #                                   math.cos(angle + math.pi - math.pi / 3) * arrowSize)
-    #     arrowHead = QPolygonF()
-    #
-    #     arrowHead.append(line.p1())
-    #     arrowHead.append(arrowP1)
-    #     arrowHead.append(arrowP2)
-    #
-    #     paint.drawLine(line)
-    #
-    #     paint.drawPolygon(arrowHead)
+
+class Window4(SecondaryWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Window4")
+        self.setGeometry(300, 300, 400, 280)
+
+        self.gr = DrawGraph()
+        self.set_main_layout()
+
+
+    def on_db_set(self):
+        pass
+
+    def create_buts(self):
+        self.union_but = QPushButton("R \u222A S")
+        self.intersection_but = QPushButton("R \u2229 S")
+        self.dif_but = QPushButton("R \ S")
+        self.dif_uniset_but = QPushButton("U \ R")
+        self.reverse_but = QPushButton("S⁻¹")
+
+        self.union_but.clicked.connect(self.action_union)
+        self.intersection_but.clicked.connect(self.action_intersection)
+        self.dif_but.clicked.connect(self.action_dif)
+        self.dif_uniset_but.clicked.connect(self.action_dif_uniset)
+        self.reverse_but.clicked.connect(self.action_reverse)
+
+        self.buts_layout = QVBoxLayout()
+
+        self.buts_layout.addWidget(self.union_but)
+        self.buts_layout.addWidget(self.intersection_but)
+        self.buts_layout.addWidget(self.dif_but)
+        self.buts_layout.addWidget(self.dif_uniset_but)
+        self.buts_layout.addWidget(self.reverse_but)
+
+    def action_union(self):
+        self.gr.set_reverse(False)
+        self.gr.set_relation(self.db.union_sets)
+
+    def action_intersection(self):
+        self.gr.set_reverse(False)
+        self.gr.set_relation(self.db.intersection_sets)
+
+    def action_dif(self):
+        self.gr.set_reverse(False)
+        self.gr.set_relation(self.db.dif_sets)
+
+    def action_dif_uniset(self):
+        self.gr.set_reverse(False)
+        self.gr.set_relation(self.db.dif_uniset_sets)
+
+    def action_reverse(self):
+        self.gr.set_reverse(True)
+        self.gr.set_relation(self.db.is_father)
+
+    def update_labels(self):
+        setA_lab = list(self.db.get_value("set_A"))
+        setB_lab = list(self.db.get_value("set_B"))
+        self.gr.labels(setA_lab, setB_lab)
+
+    def set_main_layout(self):
+        main_layout = QHBoxLayout()
+
+        self.create_buts()
+
+        graph_layout = QVBoxLayout()
+        graph_layout.addWidget(QLabel("Operations on relations"))
+        graph_layout.addWidget(self.gr)
+
+        main_layout.addLayout(self.buts_layout)
+        main_layout.addLayout(graph_layout)
+
+        self.w4 = QWidget()
+        self.w4.setLayout(main_layout)
+        self.setCentralWidget(self.w4)
 
 class DrawGraph(QLabel):
     def __init__(self):
         super().__init__()
 
-
         self.top1_line = QHBoxLayout()
         self.bot1_line = QHBoxLayout()
         self.top2_line = QHBoxLayout()
         self.bot2_line = QHBoxLayout()
+
+        self.relation = []
+        self.lb_set_A = []
+        self.lb_set_B = []
+
+        self.reverse = False
 
         self.set_layout()
 
@@ -281,10 +283,14 @@ class DrawGraph(QLabel):
 
         self.setLayout(self.main_layout)
 
-    def labels(self, setA_lab, setB_lab):
+    def _splash_text(self, painter):
+        if not self.lb_set_A and not self.lb_set_B:
+            painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, 'No data for show')
+            return
+        if not self.lb_set_A and not self.lb_set_B:
+            painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, 'No relations for show')
 
-        self.lb_set_A = []
-        self.lb_set_B = []
+    def labels(self, setA_lab, setB_lab):
 
         for i in setA_lab:
             label = QDLabel(i)
@@ -301,14 +307,21 @@ class DrawGraph(QLabel):
         self.relation = relation
         self.update()
 
+    def set_reverse(self, state):
+        self.reverse = state
+
     def paintEvent(self, e):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
         painter.setBrush(Qt.GlobalColor.black)
         painter.setPen(Qt.GlobalColor.black)
 
+        self._splash_text(painter)
         for i in self.relation:
-            self.draw_arrow(painter, self.lb_set_A[i[0]], self.lb_set_B[i[1]])
+            if not self.reverse:
+                self.draw_arrow(painter, self.lb_set_A[i[0]], self.lb_set_B[i[1]])
+            else:
+                self.draw_arrow(painter, self.lb_set_B[i[1]], self.lb_set_A[i[0]])
 
     def draw_arrow(self, paint: QPainter, frm: QDLabel, to: QDLabel):
         arrowSize = 12
@@ -330,17 +343,6 @@ class DrawGraph(QLabel):
 
         paint.drawPolygon(arrowHead)
 
-
-class Window4(SecondaryWindow):
-
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Window4")
-
-    def on_db_set(self):
-        pass
-
-
 class MainWindow(QMainWindow):
 
     def __init__(self):
@@ -349,7 +351,6 @@ class MainWindow(QMainWindow):
         self.set_manager = SetManager("setA", "setB")
 
         self.set_main_layout()
-
 
     def var(self):
         g = 21
@@ -380,7 +381,7 @@ class MainWindow(QMainWindow):
         self.bt_window4.clicked.connect(self.window4.show)
 
         self.window2.bt_save.clicked.connect(self.window3.update_labels)
-
+        self.window2.bt_save.clicked.connect(self.window4.update_labels)
 
     def set_main_layout(self):
         main_layout_for_win1 = QGridLayout()
@@ -410,6 +411,68 @@ class SetManager(QObject):
                       'Bogdan', 'Vladislav', 'Viktor']
 
         self._store = {i: [] for i in args}
+
+    def update_graph(self):
+        self.is_father = self.is_father()
+        self.is_husband = self.is_husband()
+        self.union_sets = self.union_sets()
+        self.intersection_sets = self.intersection_sets()
+        self.dif_sets = self.dif_sets()
+        self.dif_uniset_sets = self.dif_uniset_sets()
+
+    def is_father(self):
+        set_a = list(self.get_value("set_A"))
+        father_set_a = []
+        child_set_b = []
+        set_b = list(self.get_value("set_B"))
+        item_f = []
+        item_ch = []
+
+        for i in set_a:
+            if i in self.mens_names:
+                father_set_a.append(set_a.index(i))
+                item_f = random.choices(father_set_a, k=len(father_set_a))
+        for i in set_b:
+            child_set_b.append(set_b.index(i))
+            item_ch = random.sample(child_set_b, int(len(child_set_b) // 1.5))
+
+
+        self.fathers_relation = list(zip(item_f, item_ch))
+        return self.fathers_relation
+
+    def is_husband(self):
+        set_a = list(self.get_value("set_A"))
+        husband_set_a = []
+        set_b = list(self.get_value("set_B"))
+        wife_set_b = []
+        item_h = []
+        item_w = []
+
+        for i in set_a:
+            if i in self.mens_names:
+                husband_set_a.append(set_a.index(i))
+                item_h = random.sample(husband_set_a, k=len(husband_set_a))
+
+        for i in set_b:
+            if i in self.womens_names:
+                wife_set_b.append(set_b.index(i))
+                item_w = random.sample(wife_set_b, k=len(wife_set_b))
+
+        marital_relation = set(zip(item_h, item_w))
+        marital_relation -= set(self.fathers_relation)
+        return list(marital_relation)
+
+    def union_sets(self):
+        return list(set(self.is_father) | set(self.is_husband))
+
+    def intersection_sets(self):
+        return list(set(self.is_father) & set(self.is_husband))
+
+    def dif_sets(self):
+        return list(set(self.is_husband) - set(self.is_father))
+
+    def dif_uniset_sets(self):
+        return list(set(self.union_sets) - set(self.is_husband))
 
     def get_value(self, name: str):
         return self._store.get(name)
@@ -461,7 +524,7 @@ class QDLabel(QWidget):
     def sizeHint(self) -> QSize:
         fm = QFontMetrics(self.font())
         text_size = fm.boundingRect(self.text)
-        return QSize(self._circle * 2 + 4, text_size.height() + self._circle * 4 + 10)
+        return QSize(text_size.width() +self._circle * 2 + 4, text_size.height() + self._circle * 4 + 10)
 
     def start_y(self):
         return self.mapToParent(self.rect().topLeft()).y()
@@ -482,41 +545,6 @@ class QDLabel(QWidget):
         else:
             return QLine(item.get_top_point(), self.get_bottom_point())
 
-
-# class QDLabel(QLabel):
-#     def __init__(self, *args, **kwargs):
-#         super(QDLabel, self).__init__(*args, **kwargs)
-#         self.setStyleSheet("QLabel {"
-#                            "border-radius: 4px;"
-#                            "padding: 2px 2px 2px 2px;"
-#                            "border-style: solid;"
-#                            "border-width: 1px;"
-#                            "border-color: black; "
-#                            "}")
-#         self.setSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.MinimumExpanding)
-#         self.setAlignment(Qt.AlignmentFlag.AlignCenter)
-#
-#     def enterEvent(self, event: QEnterEvent) -> None:
-#         self.setToolTip(f'Size: {self.rect()}\nCenter global: {self.get_center()}')
-#
-#     def start_y(self):
-#         return self.mapToParent(self.rect().topLeft()).y()
-#
-#     def get_top_point(self) -> QPoint:
-#         return self.mapToParent(QPoint(self.rect().center().x(), self.rect().topLeft().y()))
-#
-#     def get_bottom_point(self) -> QPoint:
-#         return self.mapToParent(QPoint(self.rect().center().x(), self.rect().bottomLeft().y()))
-#
-#     def get_center(self) -> QPoint:
-#         return self.mapToParent(self.rect().center())
-#
-#     def path_to(self, item: QDLabel) -> QLine:
-#
-#         if self.start_y() > item.start_y():
-#             return QLine(item.get_bottom_point(), self.get_top_point())
-#         else:
-#             return QLine(item.get_top_point(), self.get_bottom_point())
 
 
 def main():

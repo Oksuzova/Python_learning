@@ -15,7 +15,11 @@ class Letter:
         return self.symbol
 
     def __eq__(self, other):
-        return isinstance(other, Letter) and self.symbol == other.symbol
+        if isinstance(other, Letter):
+            return self.symbol == other.symbol
+        else:
+            return self.symbol == other
+        # return isinstance(other, Letter) and self.symbol == other.symbol
 
     def __hash__(self):
         return hash(self.symbol)
@@ -76,13 +80,7 @@ class Sentence:
         return hash(tuple(self.sentences))
 
     def __str__(self):
-        sentence_string = "" + str(self.sentences[0])
-        for index in range(1, len(self.sentences)):
-            if isinstance(self.sentences[index], Word):
-                sentence_string += ' ' + str(self.sentences[index])
-            else:
-                sentence_string += '' + str(self.sentences[index])
-        return sentence_string
+        return ' '.join(str(x) for x in self.sentences)
 
 class Text:
     def __init__(self, text):
@@ -118,7 +116,6 @@ def main():
         "or an occasional hate crime in which a member of an ethnic minority is intimidated by hooligans, " 
         "is pretty mild stuff. But from a contemporary vantage point, " 
         "we see them as signs of how low our behavior can sink, not of how high our standards have risen.")
-
 
 
     unique_list = []

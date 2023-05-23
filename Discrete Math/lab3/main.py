@@ -135,14 +135,6 @@ class DrawNode(QGraphicsView):
         db = self.db_edge
         ways = list(self.dfs(db, name1, name2))
         shortest_path = self.shortest_path(ways)
-
-        # shortest_path = [(sh_path[i], sh_path[i + 1]) for i in range(len(sh_path) - 1)]
-        #
-        # for path in shortest_path:
-        #     for i in self.edge_objs[path[0]]:
-        #         for j in range(len(i)):
-        #             i[path[1]].setPen(self.pen_edge)
-
         for start in shortest_path:
             for end in shortest_path:
                 if start in self.edge_objs:

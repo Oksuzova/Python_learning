@@ -11,16 +11,25 @@ class First:
         self.c = self.c5
         self.n = 10
         self.m = 2
+        self.a = 4
+        self.b = 2
+
+        self.s = 0
 
     def calculations(self):
-        for i in range(1, self.n + 1):
-            for j in range(1, self.m + 1):
-                self.s = (i / j) / (i + self.c)
-        print(int(self.s))
+        if self.a <= -self.c <= self.n or self.b <= 0 <= self.m:
+            print("Division by zero")
+            return
+        for i in range(self.a, self.n + 1):
+            for j in range(self.b, self.m + 1):
+                self.s += (i / j) / (i + self.c)
+        print(self.s)
+
 
 def main():
     first = First()
     first.calculations()
+
 
 if __name__ == '__main__':
     main()

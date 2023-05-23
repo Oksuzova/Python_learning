@@ -1,4 +1,5 @@
 # Oksuzova T. io-z21
+import re
 
 class First:
     def __init__(self):
@@ -9,7 +10,7 @@ class First:
         self.text = "Also distorting our sense of danger is our moral psychology." \
                     "No one has ever recruited activists to a cause by announcing that things are getting better, " \
                     "and bearers of good news are often advised to keep their mouths shut lest " \
-                    "they lull people into complacency." \
+                    "they lull people into complacency?" \
                     "Also, a large swath of our intellectual culture is loath to admit that there could be anything " \
                     "good about civilization, modernity, and Western society. But perhaps the main cause" \
                     " of the illusion of ever-present violence springs from one of the forces that drove violence down"\
@@ -23,7 +24,9 @@ class First:
 
     def find(self):
         new_txt = self.text.strip()
-        list_of_sentences = new_txt.lower().split(".")
+        # list_of_sentences = new_txt.lower().split(".")
+        list_of_sentences = re.split('[.?!]', new_txt.lower())[:-1]
+        print(list_of_sentences)
         self.words_list(list_of_sentences)
 
     def words_list(self, list_sents: list):
@@ -31,6 +34,7 @@ class First:
         for line in list_sents:
             new_line = line.replace(",", "").strip().split(" ")
             words_list.append(new_line)
+        print(words_list)
         self.unique_word(words_list)
 
     def unique_word(self, words: list):
@@ -39,17 +43,21 @@ class First:
             for word in line:
                 if word not in unique_word:
                     unique_word.append(word)
+        print(unique_word)
         self.executive_method(words, unique_word)
 
     def executive_method(self, words: list, unique_list: list):
         num = 0
         count = {word: num for word in unique_list}
+        print(count)
         for word in count:
             for line in words:
                 if word in line:
                     count[word] += 1
+        print(count)
         max_val = max(count.values())
         result_k = {v: k for k, v in count.items() if v == max_val}
+        print(result_k)
         print(f"The word '{result_k[max_val]}' occurs in {max_val} sentences of the given text.")
 
 def main():

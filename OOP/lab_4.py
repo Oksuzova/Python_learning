@@ -81,6 +81,8 @@ def main():
     names = catalog.names_mass()
     prices = catalog.price_mass()
 
+    print(item1)
+
     print(f"Massive of names: {names}")
     print(f"Ascending sort by names: {sort.ascending(names)}")
 

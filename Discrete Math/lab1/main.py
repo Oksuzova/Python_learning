@@ -3,8 +3,6 @@ from PyQt6.QtWidgets import *
 from storage import SetManager
 import sets
 
-import re
-
 
 class SecondaryWindow(QMainWindow, QWidget):
     def __init__(self):

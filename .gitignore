@@ -9,3 +9,4 @@ Testing/python_patterns/
 OOP/test.py
 OOP/test.py
 .idea/workspace.xml
+*.xml

@@ -3,6 +3,7 @@ nzk = 2108
 
 import string
 
+
 class Letter:
 
     def __init__(self, symbol):
@@ -21,11 +22,12 @@ class Letter:
             return self.symbol == other
         # return isinstance(other, Letter) and self.symbol == other.symbol
 
-    def __hash__(self):
-        return hash(self.symbol)
+    # def __hash__(self):
+    #     return hash(self.symbol)
 
     def __str__(self):
         return self.symbol
+
 
 class Punctuation:
 
@@ -35,11 +37,12 @@ class Punctuation:
     def __eq__(self, other):
         return isinstance(other, Letter) and self.symbol == other.symbol
 
-    def __hash__(self):
-        return hash(self.symbol)
+    # def __hash__(self):
+    #     return hash(self.symbol)
 
     def __str__(self):
         return self.symbol
+
 
 class Word:
 
@@ -56,11 +59,12 @@ class Word:
     def __eq__(self, other):
         return isinstance(other, Word) and self.letters == other.letters
 
-    def __hash__(self):
-        return hash(tuple(self.letters))
+    # def __hash__(self):
+    #     return hash(tuple(self.letters))
 
     def __str__(self):
         return ''.join(map(str, self.letters))
+
 
 class Sentence:
     def __init__(self, sentences):
@@ -82,18 +86,15 @@ class Sentence:
     def __str__(self):
         return ' '.join(str(x) for x in self.sentences)
 
+
 class Text:
     def __init__(self, text):
         self.text = text
         self.sentences = []
-        self.set_value()
+        self.sentences = [Sentence(x) for x in self.text.strip().lower().split(".")]
 
     def get_value(self):
         return self.sentences
-
-    def set_value(self):
-        new_txt = self.text.strip()
-        self.sentences = [Sentence(x) for x in new_txt.lower().split(".")]
 
     def __iter__(self):
         return iter(self.sentences)
@@ -101,22 +102,22 @@ class Text:
     def __str__(self):
         return ''.join(map(str, self.sentences))
 
-def main():
-    text = Text("Also distorting our sense of danger is our moral psychology." 
-        "No one has ever recruited activists to a cause by announcing that things are getting better, " 
-        "and bearers of good news are often advised to keep their mouths shut lest " 
-        "they lull people into complacency." 
-        "Also, a large swath of our intellectual culture is loath to admit that there could be anything " 
-        "good about civilization, modernity, and Western society. But perhaps the main cause" 
-        " of the illusion of ever-present violence springs from one of the forces that drove violence down" 
-        " in the first place. The decline of violent behavior has been paralleled by a decline in" 
-        " attitudes that tolerate or glorify violence, and often the attitudes are in the lead." 
-        "By the standards of the mass atrocities of human history, the lethal " 
-        "injection of a murderer in Texas, " 
-        "or an occasional hate crime in which a member of an ethnic minority is intimidated by hooligans, " 
-        "is pretty mild stuff. But from a contemporary vantage point, " 
-        "we see them as signs of how low our behavior can sink, not of how high our standards have risen.")
 
+def main():
+    text = Text("Also distorting our sense of danger is our moral psychology."
+                "No one has ever recruited activists to a cause by announcing that things are getting better, "
+                "and bearers of good news are often advised to keep their mouths shut lest "
+                "they lull people into complacency."
+                "Also, a large swath of our intellectual culture is loath to admit that there could be anything "
+                "good about civilization, modernity, and Western society. But perhaps the main cause"
+                " of the illusion of ever-present violence springs from one of the forces that drove violence down"
+                " in the first place. The decline of violent behavior has been paralleled by a decline in"
+                " attitudes that tolerate or glorify violence, and often the attitudes are in the lead."
+                "By the standards of the mass atrocities of human history, the lethal "
+                "injection of a murderer in Texas, "
+                "or an occasional hate crime in which a member of an ethnic minority is intimidated by hooligans, "
+                "is pretty mild stuff. But from a contemporary vantage point, "
+                "we see them as signs of how low our behavior can sink, not of how high our standards have risen.")
 
     unique_list = []
     for sentences in text.sentences:
@@ -125,15 +126,20 @@ def main():
                 unique_list.append(word)
 
     num = 0
-    count = {word: num for word in unique_list}
-    for key in count:
+    count_by_word = {word: num for word in unique_list}
+    for key in count_by_word:
         for sentences in text.sentences:
             if key in sentences:
-                count[key] += 1
-    max_val = max(count.values())
-    result_k = {v: k for k, v in count.items() if v == max_val}
+                count_by_word[key] += 1
+    max_val = max(count_by_word.values())
+    result_k = {v: k for k, v in count_by_word.items() if v == max_val}
     print(f"The word '{result_k[max_val]}' occurs in {max_val} sentences of the given text.")
 
+    # l1 = Letter("a")
+    # l2 = Letter("a")
+    #
+    # print(l1 == l2)
+    # print(l1 is l2)
 
 if __name__ == '__main__':
     main()

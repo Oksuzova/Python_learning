@@ -181,7 +181,6 @@ class DoublyLinkedList:
                 string += f"{item}, "
         return f"[{string[:-2]}]"
 
-
 def main():
 
     # ---------------------------------CREATING INSTANSE--------------------------------------------------------------#

@@ -56,7 +56,7 @@ class Microwave(Device):
 class WashingMachine(Device):
     def __init__(self, power: int, e_m_radiation: int, enable=False):
         Device.__init__(self, power, e_m_radiation, enable)
-        self.name = "Washing Machine"
+        self.name = "WashingMachine"
 
 
 class Fridge(Device):

@@ -183,7 +183,7 @@ class DoublyLinkedList:
 
 def main():
 
-    # ---------------------------------CREATING INSTANSE--------------------------------------------------------------#
+    # ---------------------------------CREATING INSTANCE--------------------------------------------------------------#
 
     m = Microwave(5, 2)
     l = Laptop(2, 4)
@@ -244,7 +244,6 @@ def main():
     double_linked_list.select_next_item()
     double_linked_list.select_next_item()
     print(double_linked_list)
-
 
 
 if __name__ == '__main__':

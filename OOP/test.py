@@ -61,7 +61,47 @@ class TestDevice(TestDeviceParent):
 
 class TestDeviceManager:
     @pytest.fixture
-    def device_manager(self):
-        return DeviceManager()
+    def manager(self):
+        item1 = Microwave(500, 2)
+        item2 = Laptop(200, 4)
+        item3 = Fridge(300, 6)
+        item4 = WashingMachine(400, 5)
+
+        manager = DeviceManager()
+        manager.set_items(item1, item2, item3, item4)
+        return manager
+
+    def test_get_items(self, manager):
+        items = manager.get_items()
+        assert len(items) == 4
+        assert items[0].power == 500
+        assert items[1].power == 200
+        assert items[2].power == 300
+        assert items[3].power == 400
+
+    def test_sort_by_ascending(self, manager):
+        items = manager.get_items()
+        actual_result = manager.sort_by_ascending("Power")
+        expected_result = [items[1], items[2], items[3], items[0]]
+        assert actual_result == expected_result
+
+    def test_sort_by_descending(self, manager):
+        items = manager.get_items()
+        actual_result = manager.sort_by_descending("e_m_radiation")
+        expected_result = [items[2], items[3], items[1], items[0]]
+        assert actual_result == expected_result
+
+    def test_current_power(self, manager):
+        items = manager.get_items()
+        assert manager.current_power == 0
+        for item in items:
+            item.set_state(True)
+        assert manager.current_power == 1400
+
+    def test_check_radiation(self, manager):
+        items = manager.get_items()
+        actual_result = manager.check_radiation(4, 5)
+        expected_result = [items[1], items[3]]
+        assert actual_result == expected_result
 
 

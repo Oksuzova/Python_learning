@@ -119,6 +119,7 @@ def main():
 
     print(manager.check_radiation(0, 5))
 
+
 if __name__ == '__main__':
     main()
 

@@ -1,8 +1,11 @@
 # -*- coding: cp1251 -*-1
+# allure serve allurereports (create report)
+# pytest -s -v OOP/test.py --alluredir=allurereports (run test with allure)
 
 import pytest
+import allure
+
 from lab_6 import *
-from time import sleep
 
 
 class TestDeviceParent:
@@ -11,9 +14,13 @@ class TestDeviceParent:
         return Device(100, 50)
 
     def test_device_attr(self, device):
-        assert device.power == 100, "The power of the device does not match the expected"
-        assert device.e_m_radiation == 50, "The electromagnetic radiation of the device does not match the expected"
-        assert device.enable is False, "The state of device is not False after creating"
+        """Check the validity of the attributes"""
+        with allure.step("Step 1: Check power"):
+            assert device.power == 100, "The power of the device does not match the expected"
+        with allure.step("Step 2: Check radiation"):
+            assert device.e_m_radiation == 50, "The electromagnetic radiation of the device does not match the expected"
+        with allure.step("Step 3: Check state"):
+            assert device.enable is False, "The state of device is not False after creating"
 
     def test_state_display(self, device):
         assert device.state() == "Disable", "The state of device displayed Enable"
@@ -55,7 +62,6 @@ class TestDevice(TestDeviceParent):
         (Laptop)
     ])
     def device(self, request):
-        sleep(1)
         return request.param(100, 50)
 
 
